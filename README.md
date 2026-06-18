@@ -1,49 +1,39 @@
-# Kido Preston Portfolio Website
+# Kido Preston Portfolio — Final Version
 
-A free GitHub Pages-ready portfolio for Kido Preston: a dark, experimental, blue-accented personal freelance portfolio for graphic design, 3D visualization, AI concepts, VR tours, motion graphics, and concept-to-real environmental branding.
+A GitHub Pages-ready portfolio for Kido Preston.
 
-## What changed in this version
+## What is included
 
-- Name updated to **Kido Preston**.
-- Title updated to **Multidisciplinary Visual Designer & 3D Creator**.
-- Dark creative experimental style with blue accents.
-- Hero visual changed to a **rotating 3D portfolio gallery**.
-- Added **English / Arabic language toggle**.
-- Portfolio projects created from the uploaded PDF portfolio.
-- Project modals support multiple-image galleries.
-- Admin helper now supports category, thumbnail, main image, and gallery image paths.
+- `index.html` — the public portfolio website
+- `admin.html` — local helper page for editing/exporting `projects.json`
+- `css/styles.css` — full visual style and responsive layout
+- `js/app.js` — interactions, filters, modal, language toggle, scroll experience
+- `data/profile.json` — profile, services, contact links, text and Arabic translation
+- `data/projects.json` — project categories, covers, galleries and metadata
+- `assets/projects/` — portfolio images and cover images
+- `.nojekyll` — keeps GitHub Pages from ignoring files/folders
 
-## How to upload to GitHub
+## Upload to GitHub
 
-Upload all files and folders inside this folder into the root of your GitHub repository:
+Upload the contents of this folder directly into `kidopreston.github.io`.
 
-```text
-index.html
-admin.html
-README.md
-.nojekyll
-css/
-js/
-data/
-assets/
-```
-
-Your repository should look like this:
+Correct:
 
 ```text
-kidopreston.github.io/
-├── index.html
-├── admin.html
-├── README.md
-├── css/
-├── js/
-├── data/
-└── assets/
+kidopreston.github.io/index.html
+kidopreston.github.io/css/
+kidopreston.github.io/js/
+kidopreston.github.io/data/
+kidopreston.github.io/assets/
 ```
 
-Do not upload the whole folder as one folder inside the repository. The `index.html` file must be directly visible in the repository root.
+Wrong:
 
-## How to edit your personal information
+```text
+kidopreston.github.io/kido-preston-portfolio-final/index.html
+```
+
+## Updating your profile
 
 Edit:
 
@@ -51,93 +41,35 @@ Edit:
 data/profile.json
 ```
 
-Useful fields:
+Change name, title, intro, email, WhatsApp, Behance, services and skills.
 
-```json
-"name": "Kido Preston",
-"title": "Multidisciplinary Visual Designer & 3D Creator",
-"email": "kido.preston@gmail.com",
-"phone": "+201092847473",
-"whatsapp": "https://wa.me/201092847473",
-"behance": ""
+## Updating projects
+
+Edit:
+
+```text
+data/projects.json
 ```
 
-Add your Behance URL when ready:
+For each project, you can add:
 
-```json
-"behance": "https://www.behance.net/yourusername"
-```
+- `thumbnail` for the card cover
+- `image` for the main modal hero image
+- `gallery` for multiple project images
+- `category`, `tags`, `description`, `tools`, `year`, `role`
 
-## How to add project images
-
-1. Upload images to:
+Upload images to:
 
 ```text
 assets/projects/
 ```
 
-2. Edit:
-
-```text
-data/projects.json
-```
-
-3. Use image paths like this:
+Then reference them like:
 
 ```json
-"thumbnail": "assets/projects/my-cover.jpg",
-"image": "assets/projects/my-cover.jpg",
-"gallery": [
-  "assets/projects/my-cover.jpg",
-  "assets/projects/my-detail-01.jpg",
-  "assets/projects/my-detail-02.jpg"
-]
+"thumbnail": "assets/projects/my-cover.jpg"
 ```
-
-## How to use the admin page
-
-Open:
-
-```text
-https://kidopreston.github.io/admin.html
-```
-
-Use it to load existing projects, add/edit projects, then download a new `projects.json` file.
-
-Because GitHub Pages is static hosting, the admin page cannot save directly into GitHub by itself. After downloading the new `projects.json`, upload it manually to replace:
-
-```text
-data/projects.json
-```
-
-## Categories included
-
-- Graphic Design
-- Event Design
-- Concept to Real
-- 3D Visualization
-- VR Tours
-- Motion & Video
 
 ## Important note
 
-The current project images are rendered from the PDF portfolio you uploaded. Replace or add higher-resolution images anytime by uploading them to `assets/projects/` and updating `data/projects.json`.
-
-
-## V2 update notes
-
-This version fixes the project popup scrolling issue. When a project opens, the popup itself scrolls and the page behind it is locked.
-
-This version also uses dedicated cover images in `assets/projects/covers/` so project cards do not crop the top `PROJECTS PORTFOLIO` text from the PDF pages.
-
-### How to add your own cover images
-
-1. Open `admin.html` from your live website.
-2. Click **Load from data/projects.json**.
-3. Click **Edit** beside a project.
-4. Use **Choose cover image helper** to preview a cover and auto-fill the path.
-5. Upload that same image file to GitHub inside `assets/projects/`.
-6. Download the new `projects.json` from the updater.
-7. Replace `data/projects.json` in GitHub.
-
-GitHub Pages is static hosting, so the updater cannot upload files directly into the repository without a backend/GitHub login integration. It helps you prepare the correct paths and JSON safely.
+GitHub Pages is static hosting. It cannot save uploaded images directly from the website itself. Use `admin.html` to prepare/export data, then replace `data/projects.json` on GitHub and upload any images to `assets/projects/`.

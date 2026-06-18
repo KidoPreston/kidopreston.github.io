@@ -10,6 +10,19 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <div class="cursor-aura" id="cursorAura" aria-hidden="true"></div>
+  <nav class="scroll-rail" aria-label="Section progress">
+    <a href="#top" data-section="top"><span>01</span>Start</a>
+    <a href="#work" data-section="work"><span>02</span>Work</a>
+    <a href="#services" data-section="services"><span>03</span>Services</a>
+    <a href="#about" data-section="about"><span>04</span>About</a>
+    <a href="#contact" data-section="contact"><span>05</span>Contact</a>
+  </nav>
+  <div class="scroll-hud" aria-hidden="true">
+    <span id="scrollChapter">Start</span>
+    <strong id="scrollPercent">0%</strong>
+  </div>
   <div class="noise" aria-hidden="true"></div>
   <canvas id="starfield" aria-hidden="true"></canvas>
 
@@ -45,21 +58,29 @@
           <div class="stats" id="stats"></div>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Rotating 3D portfolio gallery visual">
-          <div class="gallery-scene" id="heroGallery" aria-hidden="true"></div>
-          <div class="gallery-core">
+        <div class="hero-visual reveal" id="heroVisual" aria-label="Rotating 3D portfolio gallery visual">
+          <div class="visual-grid" aria-hidden="true"></div>
+          <div class="visual-orbit-label">
+            <small data-i18n="styleLabel">Style</small>
+            <strong data-profile="heroStyle">Crazy Creative · Experimental · Trustworthy</strong>
+          </div>
+          <div class="visual-frame" aria-hidden="true">
+            <div class="gallery-scene" id="heroGallery"></div>
+            <div class="visual-core">
+              <small>PORTFOLIO</small>
+              <strong>3D Gallery</strong>
+            </div>
+          </div>
+          <div class="capability-dock" aria-label="Core disciplines">
             <span>2D</span>
             <span>3D</span>
             <span>AI</span>
             <span>VR</span>
+            <span>Motion</span>
           </div>
-          <div class="glass-card floating-card card-one">
+          <div class="visual-caption">
             <small data-i18n="currentFocus">Current Focus</small>
             <strong data-profile="focus">Graphic Design · 3D Visuals · AI · VR · Motion</strong>
-          </div>
-          <div class="glass-card floating-card card-two">
-            <small data-i18n="styleLabel">Style</small>
-            <strong data-profile="heroStyle">Crazy Creative · Experimental · Trustworthy</strong>
           </div>
         </div>
       </div>
@@ -72,7 +93,7 @@
       </div>
     </section>
 
-    <section class="section-pad" id="work">
+    <section class="section-pad work-lab" id="work">
       <div class="section-head reveal">
         <div>
           <p class="eyebrow" data-i18n="selectedWork">Selected work</p>
@@ -90,6 +111,10 @@
       </div>
 
       <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+      <div class="work-note reveal">
+        <span>Every category can open as a simple visual preview or grow into a full case study with gallery images.</span>
+        <b>Designed for future updates</b>
+      </div>
     </section>
 
     <section class="section-pad services" id="services">
@@ -128,8 +153,10 @@
 
   <footer class="footer">
     <p>© <span id="year"></span> <span data-profile="name">Kido Preston</span>. Built for GitHub Pages.</p>
-    <a href="#top" data-i18n="backToTop">Back to top ↑</a>
+    <a href="#top" data-scroll-top data-i18n="backToTop">Back to top ↑</a>
   </footer>
+
+  <button class="back-top" id="backTop" type="button" aria-label="Scroll back to top">↑</button>
 
   <dialog class="project-modal" id="projectModal">
     <button class="modal-close" id="modalClose" aria-label="Close project">×</button>

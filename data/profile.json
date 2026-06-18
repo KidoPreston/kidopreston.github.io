@@ -1,9 +1,9 @@
 {
   "name": "Kido Preston",
   "shortName": "Kido Preston",
-  "title": "Multidisciplinary Visual Designer & 3D Creator",
+  "title": "Multidisciplinary Visual Designer & Immersive 3D Creator",
   "intro": "I create bold visual systems across graphic design, 3D visualization, AI-driven concepts, VR tours, motion graphics, and event experiences for freelance clients who need work that feels different, memorable, and production-ready.",
-  "focus": "Graphic Design · 3D Visuals · AI · VR · Motion",
+  "focus": "Graphic Design · 3D Visualization · AI Concepts · VR Tours · Motion",
   "about": "I am a multidisciplinary visual creator working across 2D design, 3D visualization, architectural renders, virtual reality tours, AI-assisted concept design, motion graphics, event visuals, and concept-to-real branding. My work connects idea, mood, layout, space, and storytelling into one complete visual direction.",
   "contactText": "Available for freelance collaborations, event visuals, brand campaigns, 3D visualization, AI concept development, VR tours, and motion-ready visual systems.",
   "email": "kido.preston@gmail.com",
@@ -12,7 +12,7 @@
   "behance": "",
   "instagram": "",
   "linkedin": "",
-  "heroStyle": "Crazy Creative · Experimental · Trustworthy",
+  "heroStyle": "Bold · Experimental · Modern · Trustworthy",
   "stats": [
     {
       "value": "2D+3D",
@@ -79,12 +79,12 @@
   ],
   "translations": {
     "ar": {
-      "title": "مصمم بصري شامل وصانع محتوى ثلاثي الأبعاد",
+      "title": "مصمم بصري شامل وصانع تجارب ثلاثية الأبعاد",
       "intro": "أصمم عوالم بصرية جريئة تجمع بين التصميم الجرافيكي، التصور ثلاثي الأبعاد، الذكاء الاصطناعي، جولات الواقع الافتراضي، الموشن جرافيك، وتجارب الفعاليات لعملاء فريلانس يريدون نتائج مختلفة وجاهزة للتنفيذ.",
-      "focus": "تصميم جرافيك · 3D · ذكاء اصطناعي · VR · موشن",
+      "focus": "تصميم جرافيك · 3D Visualization · AI · VR Tours · موشن",
       "about": "أنا صانع بصري متعدد التخصصات أعمل في التصميم ثنائي الأبعاد، التصور ثلاثي الأبعاد، الرندرات المعمارية، جولات الواقع الافتراضي، التصميم بالذكاء الاصطناعي، الموشن جرافيك، وتصميم الفعاليات. هدفي تحويل الفكرة إلى اتجاه بصري كامل له شخصية وقصة وشكل واضح.",
       "contactText": "متاح لتعاونات فريلانس في تصميم الحملات، 3D visualization، أفكار AI، جولات VR، تصميم الفعاليات، والموشن جرافيك.",
-      "heroStyle": "تجريبي · جريء · حديث · موثوق",
+      "heroStyle": "جريء · تجريبي · حديث · موثوق",
       "stats": [
         {
           "value": "2D+3D",

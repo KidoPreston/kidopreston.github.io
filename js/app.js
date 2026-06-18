@@ -268,13 +268,15 @@ function renderProjects() {
   grid.innerHTML = visible.map((project) => {
     const index = projects.indexOf(project);
     const localProject = localizedObject(project);
+    const number = String(index + 1).padStart(2, '0');
     return `
-      <article class="project-card reveal" data-project-id="${project.id}">
-        <div class="project-media" style="${projectBackground(project, index)}"></div>
+      <article class="project-card reveal" data-project-id="${project.id}" style="--i:${index}">
+        <div class="project-media" style="${projectBackground(project, index)}"><span class="project-index">${number}</span></div>
         <div class="project-content">
           <div class="project-tags"><span class="tag category-tag">${localProject.category || 'Portfolio'}</span>${(project.tags || []).slice(0, 2).map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
           <h3>${localProject.title}</h3>
           <p>${localProject.subtitle || localProject.description || ''}</p>
+          <div class="card-footer"><span>${t('openProject')}</span><b>↗</b></div>
         </div>
       </article>
     `;
@@ -444,12 +446,145 @@ function setupStarfield() {
   window.addEventListener('resize', resize);
 }
 
+
+function setupScrollFX() {
+  const root = document.documentElement;
+  const progress = document.querySelector('.scroll-progress span');
+  const railLinks = $$('.scroll-rail a');
+  const navLinks = $$('.main-nav a');
+  const chapter = $('#scrollChapter');
+  const percent = $('#scrollPercent');
+  const backTop = $('#backTop');
+  const sectionIds = ['top', 'work', 'services', 'about', 'contact'];
+  const sectionLabels = { top: 'Start', work: 'Work', services: 'Services', about: 'About', contact: 'Contact' };
+  const heroVisual = $('#heroVisual');
+  let ticking = false;
+
+  const updateActive = () => {
+    const offset = window.innerHeight * 0.38;
+    let active = 'top';
+    sectionIds.forEach(id => {
+      const el = id === 'top' ? document.body : document.getElementById(id);
+      if (!el) return;
+      const top = id === 'top' ? 0 : el.getBoundingClientRect().top + window.scrollY;
+      if (window.scrollY + offset >= top) active = id;
+    });
+    railLinks.forEach(link => link.classList.toggle('active', link.dataset.section === active));
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href') || '';
+      link.classList.toggle('active', href === `#${active}` || (active === 'top' && href === '#top'));
+    });
+    if (chapter) chapter.textContent = sectionLabels[active] || active;
+  };
+
+  const update = () => {
+    ticking = false;
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const ratio = Math.min(1, Math.max(0, window.scrollY / max));
+    root.style.setProperty('--scrollProgress', ratio.toFixed(4));
+    if (progress) progress.style.transform = `scaleX(${ratio})`;
+    if (percent) percent.textContent = `${Math.round(ratio * 100)}%`;
+    document.body.classList.toggle('is-scrolled', window.scrollY > 18);
+    document.body.classList.toggle('show-back-top', window.scrollY > Math.min(760, window.innerHeight * .75));
+
+    if (heroVisual) {
+      const rect = heroVisual.getBoundingClientRect();
+      const local = Math.min(1, Math.max(-1, (window.innerHeight * .5 - rect.top) / Math.max(1, window.innerHeight)));
+      root.style.setProperty('--heroShift', `${local * -14}px`);
+      root.style.setProperty('--heroRotate', `${local * 1.7}deg`);
+    }
+    updateActive();
+  };
+
+  const requestUpdate = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  };
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+  update();
+}
+
+
+function setupAnchorNavigation() {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scrollToTarget = (hash) => {
+    if (!hash || hash === '#') return;
+    if (hash === '#top') {
+      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+      return;
+    }
+    const target = document.querySelector(hash);
+    if (!target) return;
+    const offset = Math.min(110, Math.max(76, window.innerWidth < 680 ? 78 : 102));
+    const y = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: Math.max(0, y), behavior: prefersReduced ? 'auto' : 'smooth' });
+  };
+
+  $$('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (event) => {
+      const href = anchor.getAttribute('href');
+      if (!href || href === '#') return;
+      event.preventDefault();
+      scrollToTarget(href);
+      if (history.pushState) history.pushState(null, '', href === '#top' ? window.location.pathname : href);
+    });
+  });
+
+  const backTop = $('#backTop');
+  if (backTop) {
+    backTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+      if (history.pushState) history.pushState(null, '', window.location.pathname);
+    });
+  }
+}
+
+function setupPointerFX() {
+  const aura = $('#cursorAura');
+  const canHover = window.matchMedia('(hover: hover)').matches;
+  if (aura && canHover) {
+    window.addEventListener('pointermove', (event) => {
+      aura.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+    }, { passive: true });
+  }
+
+  document.addEventListener('pointermove', (event) => {
+    const card = event.target.closest?.('.project-card');
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const px = x / rect.width;
+    const py = y / rect.height;
+    card.style.setProperty('--mx', `${px * 100}%`);
+    card.style.setProperty('--my', `${py * 100}%`);
+    if (canHover) {
+      const rotateY = (px - .5) * 5;
+      const rotateX = (.5 - py) * 5;
+      card.style.transform = `translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+  });
+  document.addEventListener('pointerout', (event) => {
+    const card = event.target.closest?.('.project-card');
+    if (!card || card.contains(event.relatedTarget)) return;
+    card.style.removeProperty('--mx');
+    card.style.removeProperty('--my');
+    card.style.transform = '';
+  });
+}
+
 async function init() {
   setupTheme();
   setupLanguage();
   setupModal();
   setupSearch();
   setupStarfield();
+  setupScrollFX();
+  setupAnchorNavigation();
+  setupPointerFX();
   const [profile, projectData] = await Promise.all([
     getJSON('data/profile.json', fallbackProfile),
     getJSON('data/projects.json', [])
