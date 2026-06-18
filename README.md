@@ -122,3 +122,22 @@ data/projects.json
 ## Important note
 
 The current project images are rendered from the PDF portfolio you uploaded. Replace or add higher-resolution images anytime by uploading them to `assets/projects/` and updating `data/projects.json`.
+
+
+## V2 update notes
+
+This version fixes the project popup scrolling issue. When a project opens, the popup itself scrolls and the page behind it is locked.
+
+This version also uses dedicated cover images in `assets/projects/covers/` so project cards do not crop the top `PROJECTS PORTFOLIO` text from the PDF pages.
+
+### How to add your own cover images
+
+1. Open `admin.html` from your live website.
+2. Click **Load from data/projects.json**.
+3. Click **Edit** beside a project.
+4. Use **Choose cover image helper** to preview a cover and auto-fill the path.
+5. Upload that same image file to GitHub inside `assets/projects/`.
+6. Download the new `projects.json` from the updater.
+7. Replace `data/projects.json` in GitHub.
+
+GitHub Pages is static hosting, so the updater cannot upload files directly into the repository without a backend/GitHub login integration. It helps you prepare the correct paths and JSON safely.

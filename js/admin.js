@@ -1,6 +1,58 @@
 const $ = (selector, scope = document) => scope.querySelector(selector);
 let projects = [];
 
+
+function fileToProjectPath(file) {
+  const safeName = file.name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9._-]/g, '').toLowerCase();
+  return `assets/projects/${safeName}`;
+}
+
+function previewFiles(previewEl, files) {
+  if (!previewEl) return;
+  previewEl.innerHTML = '';
+  Array.from(files).forEach(file => {
+    const img = document.createElement('img');
+    img.alt = file.name;
+    img.src = URL.createObjectURL(file);
+    img.onload = () => URL.revokeObjectURL(img.src);
+    previewEl.appendChild(img);
+  });
+}
+
+function setupImageHelpers() {
+  const thumbFile = $('#thumbnailFile');
+  if (thumbFile) {
+    thumbFile.addEventListener('change', () => {
+      const file = thumbFile.files[0];
+      if (!file) return;
+      $('#thumbnail').value = fileToProjectPath(file);
+      previewFiles($('#thumbnailPreview'), [file]);
+    });
+  }
+
+  const imageFile = $('#imageFile');
+  if (imageFile) {
+    imageFile.addEventListener('change', () => {
+      const file = imageFile.files[0];
+      if (!file) return;
+      $('#image').value = fileToProjectPath(file);
+      previewFiles($('#imagePreview'), [file]);
+    });
+  }
+
+  const galleryFiles = $('#galleryFiles');
+  if (galleryFiles) {
+    galleryFiles.addEventListener('change', () => {
+      const files = Array.from(galleryFiles.files || []);
+      if (!files.length) return;
+      const existing = $('#gallery').value.trim();
+      const newLines = files.map(fileToProjectPath).join('\n');
+      $('#gallery').value = existing ? `${existing}\n${newLines}` : newLines;
+      previewFiles($('#galleryPreview'), files);
+    });
+  }
+}
+
 function uid() {
   return `project-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
 }
@@ -159,5 +211,6 @@ $('#importFile').addEventListener('change', async event => {
   renderList();
 });
 
+setupImageHelpers();
 setupStarfield();
 renderList();

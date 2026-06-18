@@ -211,8 +211,8 @@ function getProjectImage(project) {
 
 function projectBackground(project, index) {
   const image = getProjectImage(project);
-  if (image) return `url('${image}')`;
-  return gradientSet[index % gradientSet.length];
+  if (image) return `background-image:url('${image}')`;
+  return `background:${gradientSet[index % gradientSet.length]}`;
 }
 
 function getCategories() {
@@ -270,7 +270,7 @@ function renderProjects() {
     const localProject = localizedObject(project);
     return `
       <article class="project-card reveal" data-project-id="${project.id}">
-        <div class="project-media" style="background:${projectBackground(project, index)}"></div>
+        <div class="project-media" style="${projectBackground(project, index)}"></div>
         <div class="project-content">
           <div class="project-tags"><span class="tag category-tag">${localProject.category || 'Portfolio'}</span>${(project.tags || []).slice(0, 2).map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
           <h3>${localProject.title}</h3>
@@ -308,7 +308,7 @@ function openProject(id) {
   const index = projects.indexOf(project);
   const bg = projectBackground(project, index);
   modalBody.innerHTML = `
-    <div class="modal-hero" style="background:${bg}">
+    <div class="modal-hero" style="${bg}">
       <div class="modal-copy">
         <div class="project-tags"><span class="tag category-tag">${localProject.category || 'Portfolio'}</span>${(project.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
         <h2>${localProject.title}</h2>
@@ -331,6 +331,8 @@ function openProject(id) {
     ${galleryMarkup(project)}
   `;
   modal.showModal();
+  modal.scrollTop = 0;
+  document.body.classList.add('modal-open');
 }
 
 function setupModal() {
@@ -338,6 +340,8 @@ function setupModal() {
   const close = $('#modalClose');
   if (!modal || !close) return;
   close.addEventListener('click', () => modal.close());
+  modal.addEventListener('close', () => document.body.classList.remove('modal-open'));
+  modal.addEventListener('cancel', () => document.body.classList.remove('modal-open'));
   modal.addEventListener('click', (event) => {
     if (event.target === modal) modal.close();
   });

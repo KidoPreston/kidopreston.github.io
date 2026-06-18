@@ -22,7 +22,7 @@
     <p class="eyebrow">Static-site editor</p>
     <h1 style="font-size:clamp(2.6rem,7vw,5.8rem)">Update Kido Preston portfolio content.</h1>
     <div class="help-box">
-      This editor helps you create a new <strong>data/projects.json</strong> file. Because GitHub Pages is static hosting, this page cannot save directly to GitHub by itself. Use it to add/edit projects, download the JSON, then upload/replace <strong>data/projects.json</strong> in your GitHub repository. Upload your images first into <strong>assets/projects/</strong>, then paste the image paths here.
+      This editor helps you create a new <strong>data/projects.json</strong> file. Because GitHub Pages is static hosting, this page cannot save directly to GitHub by itself. Use it to add/edit projects, download the JSON, then upload/replace <strong>data/projects.json</strong> in your GitHub repository. Upload your images into <strong>assets/projects/</strong>. You can also choose image files below to preview them and auto-fill the correct path, but GitHub Pages still requires you to upload those same image files to the repository.
     </div>
 
     <section class="admin-panel">
@@ -51,8 +51,14 @@
           <input id="category" placeholder="Graphic Design, 3D Visualization, VR Tours..." />
         </div>
         <div class="admin-field">
-          <label for="thumbnail">Thumbnail path</label>
+          <label for="thumbnail">Thumbnail / cover path</label>
           <input id="thumbnail" placeholder="assets/projects/my-cover.jpg" />
+        </div>
+        <div class="admin-field">
+          <label for="thumbnailFile">Choose cover image helper</label>
+          <input id="thumbnailFile" type="file" accept="image/*" />
+          <small class="admin-hint">This previews the cover and fills the path as assets/projects/filename.jpg. Upload the same image file to GitHub too.</small>
+          <div class="admin-preview" id="thumbnailPreview"></div>
         </div>
         <div class="admin-field full">
           <label for="subtitle">Short subtitle</label>
@@ -78,9 +84,21 @@
           <label for="image">Main image path or URL</label>
           <input id="image" placeholder="assets/projects/project-name.jpg" />
         </div>
+        <div class="admin-field">
+          <label for="imageFile">Choose main image helper</label>
+          <input id="imageFile" type="file" accept="image/*" />
+          <small class="admin-hint">Preview helper only. Upload the same image to GitHub.</small>
+          <div class="admin-preview" id="imagePreview"></div>
+        </div>
         <div class="admin-field full">
           <label for="gallery">Gallery image paths, one per line</label>
           <textarea id="gallery" placeholder="assets/projects/project-01.jpg&#10;assets/projects/project-02.jpg"></textarea>
+        </div>
+        <div class="admin-field full">
+          <label for="galleryFiles">Choose gallery images helper</label>
+          <input id="galleryFiles" type="file" accept="image/*" multiple />
+          <small class="admin-hint">This adds paths to the gallery list and previews them. Upload these image files to GitHub too.</small>
+          <div class="admin-preview" id="galleryPreview"></div>
         </div>
         <div class="admin-field full">
           <label for="highlights">Highlights, one per line</label>
