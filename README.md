@@ -1,21 +1,30 @@
-# Kido Preston Portfolio — Final Version
+# Kido Preston Portfolio — Interactive Experience Version
 
 A GitHub Pages-ready portfolio for Kido Preston.
 
-## What is included
+## Main improvements in this version
 
-- `index.html` — the public portfolio website
-- `admin.html` — local helper page for editing/exporting `projects.json`
-- `css/styles.css` — full visual style and responsive layout
-- `js/app.js` — interactions, filters, modal, language toggle, scroll experience
-- `data/profile.json` — profile, services, contact links, text and Arabic translation
-- `data/projects.json` — project categories, covers, galleries and metadata
-- `assets/projects/` — portfolio images and cover images
-- `.nojekyll` — keeps GitHub Pages from ignoring files/folders
+- Rebuilt hero visual into a cleaner Visual OS / portfolio lab.
+- Added a sticky interactive scroll showcase where project cards move in depth while scrolling.
+- Removed text-over-image overlap from project cards.
+- Fixed Back to top button and footer link.
+- Improved project modal scrolling.
+- Kept editable structure using `data/profile.json` and `data/projects.json`.
 
-## Upload to GitHub
+## Upload to GitHub Pages
 
-Upload the contents of this folder directly into `kidopreston.github.io`.
+Upload the contents of this folder directly into your `kidopreston.github.io` repository:
+
+- `index.html`
+- `admin.html`
+- `README.md`
+- `css/`
+- `js/`
+- `data/`
+- `assets/`
+- `.nojekyll`
+
+Do not upload the folder itself.
 
 Correct:
 
@@ -30,10 +39,10 @@ kidopreston.github.io/assets/
 Wrong:
 
 ```text
-kidopreston.github.io/kido-preston-portfolio-final/index.html
+kidopreston.github.io/kido-preston-portfolio-experience/index.html
 ```
 
-## Updating your profile
+## Editing profile
 
 Edit:
 
@@ -41,9 +50,7 @@ Edit:
 data/profile.json
 ```
 
-Change name, title, intro, email, WhatsApp, Behance, services and skills.
-
-## Updating projects
+## Editing projects
 
 Edit:
 
@@ -51,25 +58,23 @@ Edit:
 data/projects.json
 ```
 
-For each project, you can add:
-
-- `thumbnail` for the card cover
-- `image` for the main modal hero image
-- `gallery` for multiple project images
-- `category`, `tags`, `description`, `tools`, `year`, `role`
-
-Upload images to:
+Images should be uploaded to:
 
 ```text
 assets/projects/
 ```
 
-Then reference them like:
+Then reference them in `data/projects.json` using paths like:
 
 ```json
 "thumbnail": "assets/projects/my-cover.jpg"
 ```
 
-## Important note
+## Important
 
-GitHub Pages is static hosting. It cannot save uploaded images directly from the website itself. Use `admin.html` to prepare/export data, then replace `data/projects.json` on GitHub and upload any images to `assets/projects/`.
+After uploading a new version to GitHub, hard refresh the website:
+
+- Windows: `Ctrl + F5`
+- Mac: `Cmd + Shift + R`
+
+This prevents your browser from showing cached old CSS/JS.

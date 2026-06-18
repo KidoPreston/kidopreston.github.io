@@ -3,40 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kido Preston - multidisciplinary visual designer, 3D creator, AI visual artist, VR tours and motion graphics portfolio." />
-  <meta name="theme-color" content="#07070b" />
+  <meta name="description" content="Kido Preston — multidisciplinary visual designer, 3D creator, AI visual artist, VR tours and motion graphics portfolio." />
+  <meta name="theme-color" content="#05070d" />
   <title>Kido Preston | Visual Designer & 3D Creator</title>
   <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <div class="scroll-progress" aria-hidden="true"><span></span></div>
-  <div class="cursor-aura" id="cursorAura" aria-hidden="true"></div>
-  <nav class="scroll-rail" aria-label="Section progress">
-    <a href="#top" data-section="top"><span>01</span>Start</a>
-    <a href="#work" data-section="work"><span>02</span>Work</a>
-    <a href="#services" data-section="services"><span>03</span>Services</a>
-    <a href="#about" data-section="about"><span>04</span>About</a>
-    <a href="#contact" data-section="contact"><span>05</span>Contact</a>
-  </nav>
-  <div class="scroll-hud" aria-hidden="true">
-    <span id="scrollChapter">Start</span>
-    <strong id="scrollPercent">0%</strong>
-  </div>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
   <div class="noise" aria-hidden="true"></div>
   <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="cursor-aura" id="cursorAura" aria-hidden="true"></div>
 
   <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Go to top">
-      <span class="brand-mark">◈</span>
+    <a class="brand" href="#top" data-scroll-link aria-label="Go to top">
+      <span class="brand-mark">K</span>
       <span data-profile="shortName">Kido Preston</span>
     </a>
+
     <nav class="main-nav" aria-label="Main navigation">
-      <a href="#work" data-i18n="navWork">Work</a>
-      <a href="#services" data-i18n="navServices">Services</a>
-      <a href="#about" data-i18n="navAbout">About</a>
-      <a href="#contact" data-i18n="navContact">Contact</a>
+      <a href="#work" data-scroll-link data-i18n="navWork">Work</a>
+      <a href="#services" data-scroll-link data-i18n="navServices">Services</a>
+      <a href="#about" data-scroll-link data-i18n="navAbout">About</a>
+      <a href="#contact" data-scroll-link data-i18n="navContact">Contact</a>
     </nav>
+
     <div class="header-actions">
       <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">☾</button>
       <button class="icon-btn lang-btn" id="langToggle" type="button" aria-label="Switch language">AR</button>
@@ -44,45 +35,47 @@
     </div>
   </header>
 
+  <nav class="scroll-rail" aria-label="Page sections">
+    <a href="#top" data-scroll-link data-section="top"><span>01</span>Intro</a>
+    <a href="#experience" data-scroll-link data-section="experience"><span>02</span>Experience</a>
+    <a href="#work" data-scroll-link data-section="work"><span>03</span>Work</a>
+    <a href="#services" data-scroll-link data-section="services"><span>04</span>Services</a>
+    <a href="#contact" data-scroll-link data-section="contact"><span>05</span>Contact</a>
+  </nav>
+
   <main>
-    <section class="hero section-pad">
+    <section class="hero section-pad" aria-label="Portfolio introduction">
       <div class="hero-grid">
         <div class="hero-copy reveal">
           <p class="eyebrow" data-i18n="heroEyebrow">Graphic Design · 3D Visualization · AI · VR · Motion</p>
           <h1><span data-profile="name">Kido Preston</span><br><span class="gradient-text" data-profile="title">Multidisciplinary Visual Designer & 3D Creator</span></h1>
-          <p class="hero-text" data-profile="intro">I build cinematic visual identities, immersive event worlds, 3D characters, and creative campaigns that feel bold, premium, and memorable.</p>
+          <p class="hero-text" data-profile="intro">I create bold visual systems across graphic design, 3D visualization, AI-driven concepts, VR tours, motion graphics, and event experiences.</p>
           <div class="hero-actions">
-            <a class="primary-btn" href="#work" data-i18n="viewPortfolio">View Portfolio</a>
-            <a class="secondary-btn" href="#contact" data-i18n="letsCollaborate">Let’s Collaborate</a>
+            <a class="primary-btn magnetic" href="#work" data-scroll-link data-i18n="viewPortfolio">View Portfolio</a>
+            <a class="secondary-btn magnetic" href="#contact" data-scroll-link data-i18n="letsCollaborate">Let’s Collaborate</a>
           </div>
           <div class="stats" id="stats"></div>
         </div>
 
-        <div class="hero-visual reveal" id="heroVisual" aria-label="Rotating 3D portfolio gallery visual">
-          <div class="visual-grid" aria-hidden="true"></div>
-          <div class="visual-orbit-label">
-            <small data-i18n="styleLabel">Style</small>
-            <strong data-profile="heroStyle">Crazy Creative · Experimental · Trustworthy</strong>
+        <aside class="hero-lab reveal" id="heroLab" aria-label="Interactive portfolio preview">
+          <div class="lab-chrome">
+            <span></span><span></span><span></span>
+            <strong>Visual OS</strong>
           </div>
-          <div class="visual-frame" aria-hidden="true">
-            <div class="gallery-scene" id="heroGallery"></div>
-            <div class="visual-core">
-              <small>PORTFOLIO</small>
-              <strong>3D Gallery</strong>
+          <div class="lab-stage" id="heroGallery">
+            <div class="lab-placeholder">Loading visual system</div>
+          </div>
+          <div class="lab-footer">
+            <div>
+              <small data-i18n="styleLabel">Style</small>
+              <strong data-profile="heroStyle">Bold · Experimental · Modern · Trustworthy</strong>
+            </div>
+            <div>
+              <small data-i18n="currentFocus">Current Focus</small>
+              <strong data-profile="focus">Graphic Design · 3D Visualization · AI Concepts · VR Tours · Motion</strong>
             </div>
           </div>
-          <div class="capability-dock" aria-label="Core disciplines">
-            <span>2D</span>
-            <span>3D</span>
-            <span>AI</span>
-            <span>VR</span>
-            <span>Motion</span>
-          </div>
-          <div class="visual-caption">
-            <small data-i18n="currentFocus">Current Focus</small>
-            <strong data-profile="focus">Graphic Design · 3D Visuals · AI · VR · Motion</strong>
-          </div>
-        </div>
+        </aside>
       </div>
     </section>
 
@@ -90,6 +83,22 @@
       <div class="marquee-track">
         <span>Graphic Design</span><span>3D Visualization</span><span>AI Concepts</span><span>VR Tours</span><span>Motion Graphics</span><span>Concept to Real</span>
         <span>Graphic Design</span><span>3D Visualization</span><span>AI Concepts</span><span>VR Tours</span><span>Motion Graphics</span><span>Concept to Real</span>
+      </div>
+    </section>
+
+    <section class="scroll-showcase" id="experience" aria-label="Interactive scroll showcase">
+      <div class="showcase-sticky">
+        <div class="showcase-copy">
+          <p class="eyebrow">Scroll Experience</p>
+          <h2>One creator.<br><span class="gradient-text">Many visual worlds.</span></h2>
+          <p id="showcaseText">As you scroll, the work moves like a visual machine — graphic systems, 3D worlds, AI concepts, VR spaces, and motion ideas passing through one creative pipeline.</p>
+          <div class="showcase-meter" aria-hidden="true"><span id="showcaseMeter"></span></div>
+          <ul class="showcase-tabs" id="showcaseTabs"></ul>
+        </div>
+        <div class="showcase-viewport" id="showcaseViewport">
+          <div class="depth-grid" aria-hidden="true"></div>
+          <div class="runway" id="runway"></div>
+        </div>
       </div>
     </section>
 
@@ -112,8 +121,8 @@
 
       <div class="project-grid" id="projectGrid" aria-live="polite"></div>
       <div class="work-note reveal">
-        <span>Every category can open as a simple visual preview or grow into a full case study with gallery images.</span>
-        <b>Designed for future updates</b>
+        <span>Each card is clean on purpose: cover image first, project story second, no messy text-over-image overlap.</span>
+        <b>Built to grow into case studies</b>
       </div>
     </section>
 
@@ -153,7 +162,7 @@
 
   <footer class="footer">
     <p>© <span id="year"></span> <span data-profile="name">Kido Preston</span>. Built for GitHub Pages.</p>
-    <a href="#top" data-scroll-top data-i18n="backToTop">Back to top ↑</a>
+    <a href="#top" data-scroll-link data-i18n="backToTop">Back to top ↑</a>
   </footer>
 
   <button class="back-top" id="backTop" type="button" aria-label="Scroll back to top">↑</button>

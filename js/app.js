@@ -6,8 +6,8 @@ const fallbackProfile = {
   shortName: "Kido Preston",
   title: "Multidisciplinary Visual Designer & 3D Creator",
   intro: "I create bold visual systems across graphic design, 3D visualization, AI-driven concepts, VR tours, motion graphics, and event experiences.",
-  focus: "Graphic Design · 3D Visuals · AI · VR · Motion",
-  heroStyle: "Crazy Creative · Experimental · Trustworthy",
+  focus: "Graphic Design · 3D Visualization · AI Concepts · VR Tours · Motion",
+  heroStyle: "Bold · Experimental · Modern · Trustworthy",
   about: "I combine design, 3D, AI, VR, and motion into complete visual directions for freelance clients.",
   contactText: "Available for freelance collaborations, event visuals, brand campaigns, 3D visualization, AI concept development, VR tours, and motion-ready visual systems.",
   email: "kido.preston@gmail.com",
@@ -108,30 +108,17 @@ let projects = [];
 let profileData = fallbackProfile;
 let activeFilter = "All";
 let searchTerm = "";
-let currentLang = localStorage.getItem('portfolio-lang') || 'en';
+let currentLang = localStorage.getItem("portfolio-lang") || "en";
+const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const gradientSet = [
-  "linear-gradient(135deg, #061527 0%, #0e6fff 42%, #00e0ff 100%)",
-  "linear-gradient(135deg, #05080f 0%, #2a45ff 48%, #6bdcff 100%)",
-  "linear-gradient(135deg, #020309 0%, #0743a5 38%, #00e0ff 100%)",
-  "linear-gradient(135deg, #07101d 0%, #1d78ff 38%, #8bd8ff 100%)",
-  "linear-gradient(135deg, #050505 0%, #0077ff 45%, #f6f7ff 100%)"
-];
-
-function t(key) {
-  return (i18n[currentLang] && i18n[currentLang][key]) || i18n.en[key] || key;
+function escapeHTML(value = "") {
+  return String(value).replace(/[&<>'"]/g, (char) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
+  })[char]);
 }
-
-function localizedObject(item) {
-  if (currentLang === 'en') return item;
-  return { ...item, ...(item.translations?.[currentLang] || {}) };
-}
-
-function localizedProfile(profile) {
-  if (currentLang === 'en') return profile;
-  return { ...profile, ...(profile.translations?.[currentLang] || {}) };
-}
-
+function t(key) { return (i18n[currentLang] && i18n[currentLang][key]) || i18n.en[key] || key; }
+function localizedObject(item) { return currentLang === "en" ? item : { ...item, ...(item.translations?.[currentLang] || {}) }; }
+function localizedProfile(profile) { return currentLang === "en" ? profile : { ...profile, ...(profile.translations?.[currentLang] || {}) }; }
 async function getJSON(path, fallback) {
   try {
     const response = await fetch(path, { cache: "no-store" });
@@ -142,19 +129,16 @@ async function getJSON(path, fallback) {
     return fallback;
   }
 }
+function getProjectImage(project) { return project.thumbnail || project.image || (project.gallery && project.gallery[0]) || ""; }
 
 function applyStaticLanguage() {
   document.documentElement.lang = currentLang;
-  document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-  document.body.classList.toggle('rtl', currentLang === 'ar');
-  $$('[data-i18n]').forEach((node) => {
-    node.textContent = t(node.dataset.i18n);
-  });
-  $$('[data-i18n-placeholder]').forEach((node) => {
-    node.setAttribute('placeholder', t(node.dataset.i18nPlaceholder));
-  });
+  document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
+  document.body.classList.toggle("rtl", currentLang === "ar");
+  $$('[data-i18n]').forEach((node) => { node.textContent = t(node.dataset.i18n); });
+  $$('[data-i18n-placeholder]').forEach((node) => { node.setAttribute("placeholder", t(node.dataset.i18nPlaceholder)); });
   const langToggle = $('#langToggle');
-  if (langToggle) langToggle.textContent = currentLang === 'en' ? 'AR' : 'EN';
+  if (langToggle) langToggle.textContent = currentLang === "en" ? "AR" : "EN";
 }
 
 function applyProfile(profile) {
@@ -167,24 +151,25 @@ function applyProfile(profile) {
   const stats = $('#stats');
   if (stats) {
     stats.innerHTML = (localProfile.stats || []).map((item) => `
-      <div class="stat"><strong>${item.value}</strong><span>${item.label}</span></div>
+      <div class="stat"><strong>${escapeHTML(item.value)}</strong><span>${escapeHTML(item.label)}</span></div>
     `).join('');
   }
 
+  const services = localProfile.services?.length ? localProfile.services : fallbackProfile.services;
   const serviceGrid = $('#serviceGrid');
   if (serviceGrid) {
-    serviceGrid.innerHTML = (localProfile.services || fallbackProfile.services).map((service) => `
+    serviceGrid.innerHTML = services.map((service) => `
       <article class="service-card reveal">
-        <div class="service-icon">${service.icon}</div>
-        <h3>${service.title}</h3>
-        <p>${service.text}</p>
+        <div class="service-icon">${escapeHTML(service.icon || "✦")}</div>
+        <h3>${escapeHTML(service.title)}</h3>
+        <p>${escapeHTML(service.text)}</p>
       </article>
     `).join('');
   }
 
   const skillCloud = $('#skillCloud');
   if (skillCloud) {
-    skillCloud.innerHTML = (localProfile.skills || []).map(skill => `<li>${skill}</li>`).join('');
+    skillCloud.innerHTML = (localProfile.skills || []).map(skill => `<li>${escapeHTML(skill)}</li>`).join('');
   }
 
   const contactActions = $('#contactActions');
@@ -198,21 +183,12 @@ function applyProfile(profile) {
       !localProfile.whatsapp && localProfile.phone && { label: t('whatsApp'), url: `https://wa.me/${localProfile.phone.replace(/\D/g, '')}` }
     ].filter(Boolean);
     contactActions.innerHTML = contacts.map((item) => `
-      <a class="${item.primary ? 'primary-btn' : 'secondary-btn'}" href="${item.url}" target="${item.url.startsWith('http') ? '_blank' : '_self'}" rel="noreferrer">${item.label}</a>
+      <a class="${item.primary ? 'primary-btn' : 'secondary-btn'} magnetic" href="${escapeHTML(item.url)}" target="${item.url.startsWith('http') ? '_blank' : '_self'}" rel="noreferrer">${escapeHTML(item.label)}</a>
     `).join('');
   }
 
-  $('#year').textContent = new Date().getFullYear();
-}
-
-function getProjectImage(project) {
-  return project.thumbnail || project.image || (project.gallery && project.gallery[0]) || '';
-}
-
-function projectBackground(project, index) {
-  const image = getProjectImage(project);
-  if (image) return `background-image:url('${image}')`;
-  return `background:${gradientSet[index % gradientSet.length]}`;
+  const year = $('#year');
+  if (year) year.textContent = new Date().getFullYear();
 }
 
 function getCategories() {
@@ -221,12 +197,12 @@ function getCategories() {
 }
 
 function renderFilters() {
-  const filters = getCategories();
   const container = $('#filters');
   if (!container) return;
-  container.innerHTML = filters.map(tag => `
-    <button class="filter-btn ${tag === activeFilter || (activeFilter === 'All' && tag === t('all')) ? 'active' : ''}" type="button" data-filter="${tag}">${tag}</button>
+  container.innerHTML = getCategories().map(tag => `
+    <button class="filter-btn ${tag === activeFilter || (activeFilter === 'All' && tag === t('all')) ? 'active' : ''}" type="button" data-filter="${escapeHTML(tag)}">${escapeHTML(tag)}</button>
   `).join('');
+
   $$('.filter-btn', container).forEach(button => {
     button.addEventListener('click', () => {
       activeFilter = button.dataset.filter === t('all') ? 'All' : button.dataset.filter;
@@ -248,354 +224,347 @@ function filteredProjects() {
 }
 
 function renderHeroGallery() {
-  const gallery = $('#heroGallery');
-  if (!gallery) return;
-  const featured = projects.filter(project => getProjectImage(project)).slice(0, 6);
-  gallery.innerHTML = featured.map((project, index) => {
-    const localProject = localizedObject(project);
-    return `<div class="hero-gallery-card hero-gallery-card-${index + 1}" style="background-image:url('${getProjectImage(project)}')"><span>${localProject.category || localProject.title}</span></div>`;
+  const stage = $('#heroGallery');
+  if (!stage) return;
+  const featured = projects.filter(project => getProjectImage(project)).slice(0, 4);
+  stage.innerHTML = `
+    <div class="lab-core" aria-hidden="true"></div>
+    ${featured.map((project, index) => {
+      const local = localizedObject(project);
+      return `<div class="lab-card card-${index + 1}" style="background-image:url('${escapeHTML(getProjectImage(project))}')" data-title="${escapeHTML(local.category || local.title)}"></div>`;
+    }).join('')}
+    <div class="lab-badge badge-1">2D</div>
+    <div class="lab-badge badge-2">3D</div>
+    <div class="lab-badge badge-3">AI</div>
+  `;
+}
+
+function renderRunway() {
+  const runway = $('#runway');
+  const tabs = $('#showcaseTabs');
+  if (!runway || !tabs) return;
+  const featured = projects.filter(project => getProjectImage(project)).slice(0, 5);
+  tabs.innerHTML = featured.map((project, index) => `<li class="${index === 0 ? 'active' : ''}" data-index="${index}">${escapeHTML(localizedObject(project).category || localizedObject(project).title)}</li>`).join('');
+  runway.innerHTML = featured.map((project, index) => {
+    const local = localizedObject(project);
+    return `
+      <article class="runway-card" data-index="${index}">
+        <img src="${escapeHTML(getProjectImage(project))}" alt="${escapeHTML(local.title)}" loading="lazy" />
+        <div class="runway-body">
+          <small>${escapeHTML(local.category || 'Portfolio')}</small>
+          <h3>${escapeHTML(local.title)}</h3>
+          <p>${escapeHTML(local.subtitle || local.description || '')}</p>
+        </div>
+      </article>
+    `;
   }).join('');
+  updateShowcase();
 }
 
 function renderProjects() {
   const grid = $('#projectGrid');
   if (!grid) return;
-  const visible = filteredProjects();
-  if (!visible.length) {
-    grid.innerHTML = `<div class="help-box">${t('noProjects')}</div>`;
+  const items = filteredProjects();
+  if (!items.length) {
+    grid.innerHTML = `<p class="empty-state">${escapeHTML(t('noProjects'))}</p>`;
     return;
   }
-  grid.innerHTML = visible.map((project) => {
-    const index = projects.indexOf(project);
-    const localProject = localizedObject(project);
-    const number = String(index + 1).padStart(2, '0');
+
+  grid.innerHTML = items.map((project, index) => {
+    const local = localizedObject(project);
+    const image = getProjectImage(project);
+    const tags = (project.tags || []).slice(0, 3);
     return `
-      <article class="project-card reveal" data-project-id="${project.id}" style="--i:${index}">
-        <div class="project-media" style="${projectBackground(project, index)}"><span class="project-index">${number}</span></div>
-        <div class="project-content">
-          <div class="project-tags"><span class="tag category-tag">${localProject.category || 'Portfolio'}</span>${(project.tags || []).slice(0, 2).map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
-          <h3>${localProject.title}</h3>
-          <p>${localProject.subtitle || localProject.description || ''}</p>
-          <div class="card-footer"><span>${t('openProject')}</span><b>↗</b></div>
-        </div>
+      <article class="project-card reveal" style="--i:${index}">
+        <button class="project-btn" type="button" data-project-id="${escapeHTML(project.id)}" aria-label="Open ${escapeHTML(local.title)}">
+          <div class="project-cover">
+            ${image ? `<img src="${escapeHTML(image)}" alt="${escapeHTML(local.title)}" loading="lazy" />` : ''}
+          </div>
+          <div class="project-body">
+            <div class="project-topline">
+              <span class="project-category">${escapeHTML(local.category || 'Portfolio')}</span>
+              <span class="project-index">${String(index + 1).padStart(2, '0')}</span>
+            </div>
+            <h3>${escapeHTML(local.title)}</h3>
+            <p>${escapeHTML(local.subtitle || local.description || '')}</p>
+            <div class="card-tags">${tags.map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
+          </div>
+          <div class="project-footer"><span>${escapeHTML(project.year || '')}</span><strong>${escapeHTML(t('openProject'))}</strong></div>
+        </button>
       </article>
     `;
   }).join('');
 
-  $$('.project-card', grid).forEach(card => {
-    card.addEventListener('click', () => openProject(card.dataset.projectId));
+  $$('.project-btn', grid).forEach(button => {
+    button.addEventListener('click', () => openProject(button.dataset.projectId));
   });
+
+  $$('.project-card', grid).forEach(card => {
+    card.addEventListener('pointermove', (event) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+      card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+    });
+  });
+
   observeReveals();
 }
 
-function galleryMarkup(project) {
-  const gallery = project.gallery || (project.image ? [project.image] : []);
-  if (!gallery.length) return '';
-  return `
-    <div class="project-gallery-block">
-      <h3>${t('gallery')}</h3>
-      <div class="project-gallery">
-        ${gallery.map(src => `<img src="${src}" alt="${project.title} portfolio image" loading="lazy">`).join('')}
-      </div>
-    </div>
-  `;
-}
-
 function openProject(id) {
-  const project = projects.find(item => String(item.id) === String(id));
-  if (!project) return;
-  const localProject = localizedObject(project);
+  const project = projects.find(item => item.id === id);
   const modal = $('#projectModal');
-  const modalBody = $('#modalBody');
-  const index = projects.indexOf(project);
-  const bg = projectBackground(project, index);
-  modalBody.innerHTML = `
-    <div class="modal-hero" style="${bg}">
+  const body = $('#modalBody');
+  if (!project || !modal || !body) return;
+
+  const local = localizedObject(project);
+  const hero = project.image || getProjectImage(project);
+  const gallery = (project.gallery || []).filter(Boolean);
+  body.innerHTML = `
+    <section class="modal-hero" style="background-image:url('${escapeHTML(hero)}')">
       <div class="modal-copy">
-        <div class="project-tags"><span class="tag category-tag">${localProject.category || 'Portfolio'}</span>${(project.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
-        <h2>${localProject.title}</h2>
-        <p>${localProject.subtitle || ''}</p>
+        <p class="eyebrow">${escapeHTML(local.category || 'Portfolio')}</p>
+        <h2>${escapeHTML(local.title)}</h2>
+        <p>${escapeHTML(local.subtitle || '')}</p>
       </div>
-    </div>
-    <div class="modal-details">
+    </section>
+    <section class="modal-details">
       <div>
-        <h3>${t('projectStory')}</h3>
-        <p>${localProject.description || 'Add a full project description here.'}</p>
-        ${project.highlights?.length ? `<h3>${t('highlights')}</h3><ul>${project.highlights.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
+        <h3>${escapeHTML(t('projectStory'))}</h3>
+        <p>${escapeHTML(local.description || local.subtitle || '')}</p>
+        ${(project.highlights || []).length ? `<h3>${escapeHTML(t('highlights'))}</h3><ul>${project.highlights.map(item => `<li>${escapeHTML(item)}</li>`).join('')}</ul>` : ''}
+        ${gallery.length ? `<h3>${escapeHTML(t('gallery'))}</h3><div class="modal-gallery">${gallery.map(src => `<img src="${escapeHTML(src)}" alt="${escapeHTML(local.title)} gallery image" loading="lazy" />`).join('')}</div>` : ''}
       </div>
       <aside class="modal-meta">
-        <strong>${t('role')}</strong><span>${localProject.role || 'Designer / Artist'}</span>
-        <strong>${t('year')}</strong><span>${localProject.year || 'Portfolio work'}</span>
-        <strong>${t('tools')}</strong><span>${(project.tools || []).join(', ') || 'Photoshop, Illustrator, 3D, AI'}</span>
-        ${project.link ? `<strong>${t('link')}</strong><span><a href="${project.link}" target="_blank" rel="noreferrer">${t('openProject')}</a></span>` : ''}
+        ${project.role ? `<strong>${escapeHTML(t('role'))}</strong><span>${escapeHTML(project.role)}</span>` : ''}
+        ${project.year ? `<strong>${escapeHTML(t('year'))}</strong><span>${escapeHTML(project.year)}</span>` : ''}
+        ${(project.tools || []).length ? `<strong>${escapeHTML(t('tools'))}</strong><span>${project.tools.map(escapeHTML).join(' · ')}</span>` : ''}
+        ${project.link ? `<strong>${escapeHTML(t('link'))}</strong><span><a href="${escapeHTML(project.link)}" target="_blank" rel="noreferrer">Open link ↗</a></span>` : ''}
       </aside>
-    </div>
-    ${galleryMarkup(project)}
+    </section>
   `;
+  document.body.classList.add('modal-open');
   modal.showModal();
   modal.scrollTop = 0;
-  document.body.classList.add('modal-open');
 }
 
-function setupModal() {
+function closeProject() {
   const modal = $('#projectModal');
-  const close = $('#modalClose');
-  if (!modal || !close) return;
-  close.addEventListener('click', () => modal.close());
-  modal.addEventListener('close', () => document.body.classList.remove('modal-open'));
-  modal.addEventListener('cancel', () => document.body.classList.remove('modal-open'));
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) modal.close();
-  });
+  if (modal?.open) modal.close();
+  document.body.classList.remove('modal-open');
 }
 
-function setupTheme() {
-  const saved = localStorage.getItem('portfolio-theme');
-  if (saved === 'light') document.body.classList.add('light');
-  const toggle = $('#themeToggle');
-  if (!toggle) return;
-  toggle.textContent = document.body.classList.contains('light') ? '☀' : '☾';
-  toggle.addEventListener('click', () => {
-    document.body.classList.toggle('light');
-    const mode = document.body.classList.contains('light') ? 'light' : 'dark';
-    localStorage.setItem('portfolio-theme', mode);
-    toggle.textContent = mode === 'light' ? '☀' : '☾';
-  });
-}
-
-function setupLanguage() {
-  const toggle = $('#langToggle');
-  if (!toggle) return;
-  toggle.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'ar' : 'en';
-    localStorage.setItem('portfolio-lang', currentLang);
-    applyStaticLanguage();
-    applyProfile(profileData);
-    activeFilter = 'All';
-    renderFilters();
-    renderProjects();
-    renderHeroGallery();
-    observeReveals();
-  });
-}
-
+let revealObserver;
 function observeReveals() {
-  const observer = new IntersectionObserver((entries) => {
+  if (revealObserver) revealObserver.disconnect();
+  revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
-  $$('.reveal:not(.visible)').forEach(el => observer.observe(el));
-}
-
-function setupSearch() {
-  const input = $('#projectSearch');
-  if (!input) return;
-  input.addEventListener('input', () => {
-    searchTerm = input.value;
-    renderProjects();
-  });
-  window.addEventListener('keydown', event => {
-    if (event.key === '/' && document.activeElement !== input) {
-      event.preventDefault();
-      input.focus();
-    }
-  });
+  }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+  $$('.reveal').forEach(node => revealObserver.observe(node));
 }
 
 function setupStarfield() {
   const canvas = $('#starfield');
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let stars = [];
-  let width = 0;
-  let height = 0;
-  const resize = () => {
-    width = canvas.width = window.innerWidth * window.devicePixelRatio;
-    height = canvas.height = window.innerHeight * window.devicePixelRatio;
-    stars = Array.from({ length: Math.min(140, Math.floor(window.innerWidth / 9)) }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      r: Math.random() * 1.6 + .3,
-      vx: (Math.random() - .5) * .18,
-      vy: (Math.random() - .5) * .18,
-      alpha: Math.random() * .55 + .12
-    }));
-  };
-  const draw = () => {
-    ctx.clearRect(0, 0, width, height);
-    stars.forEach(star => {
-      star.x += star.vx;
-      star.y += star.vy;
-      if (star.x < 0) star.x = width;
-      if (star.x > width) star.x = 0;
-      if (star.y < 0) star.y = height;
-      if (star.y > height) star.y = 0;
-      ctx.beginPath();
-      ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
-      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-      ctx.fill();
+  const context = canvas.getContext('2d');
+  const particles = Array.from({ length: 120 }, () => ({ x: Math.random(), y: Math.random(), z: Math.random(), s: Math.random() * 1.7 + .25 }));
+  function resize() {
+    canvas.width = window.innerWidth * devicePixelRatio;
+    canvas.height = window.innerHeight * devicePixelRatio;
+    context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  }
+  function draw() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = 'rgba(190, 235, 255, .68)';
+    const scroll = window.scrollY * .00006;
+    particles.forEach(point => {
+      const x = ((point.x + scroll * (0.35 + point.z)) % 1) * window.innerWidth;
+      const y = ((point.y + scroll * (0.18 + point.z)) % 1) * window.innerHeight;
+      context.globalAlpha = .25 + point.z * .65;
+      context.beginPath();
+      context.arc(x, y, point.s, 0, Math.PI * 2);
+      context.fill();
     });
     requestAnimationFrame(draw);
-  };
+  }
   resize();
+  window.addEventListener('resize', resize, { passive: true });
   draw();
-  window.addEventListener('resize', resize);
 }
 
+function updateShowcase() {
+  const section = $('#experience');
+  const cards = $$('.runway-card');
+  const meter = $('#showcaseMeter');
+  const text = $('#showcaseText');
+  const tabs = $$('.showcase-tabs li');
+  if (!section || !cards.length) return;
 
-function setupScrollFX() {
+  const rect = section.getBoundingClientRect();
+  const total = Math.max(1, rect.height - window.innerHeight);
+  const progress = Math.min(1, Math.max(0, -rect.top / total));
+  if (meter) meter.style.transform = `scaleX(${progress})`;
+
+  const activeIndex = Math.min(cards.length - 1, Math.max(0, Math.round(progress * (cards.length - 1))));
+  tabs.forEach((tab, index) => tab.classList.toggle('active', index === activeIndex));
+  const activeProject = projects.filter(project => getProjectImage(project)).slice(0, 5)[activeIndex];
+  if (text && activeProject) {
+    const local = localizedObject(activeProject);
+    text.textContent = local.subtitle || local.description || text.textContent;
+  }
+
+  cards.forEach((card, index) => {
+    const step = progress * (cards.length - 1) - index;
+    const abs = Math.abs(step);
+    const x = step * -360;
+    const y = Math.sin((index + progress) * 2.1) * 38;
+    const z = 260 - abs * 210;
+    const rot = step * 16;
+    const scale = Math.max(.72, 1 - abs * .12);
+    const opacity = Math.max(.12, 1 - abs * .34);
+    const blur = Math.min(8, abs * 2.8);
+    card.style.transform = `translate3d(calc(-50% + ${x}px), calc(-50% + ${y}px), ${z}px) rotateY(${rot}deg) rotateZ(${rot * .25}deg) scale(${scale})`;
+    card.style.opacity = opacity;
+    card.style.filter = `blur(${blur}px) saturate(${1 + Math.max(0, 1 - abs) * .18})`;
+    card.style.zIndex = String(20 - Math.round(abs * 5));
+  });
+}
+
+function setupScrollExperience() {
   const root = document.documentElement;
-  const progress = document.querySelector('.scroll-progress span');
+  const progressEl = $('#scrollProgress');
   const railLinks = $$('.scroll-rail a');
-  const navLinks = $$('.main-nav a');
-  const chapter = $('#scrollChapter');
-  const percent = $('#scrollPercent');
-  const backTop = $('#backTop');
-  const sectionIds = ['top', 'work', 'services', 'about', 'contact'];
-  const sectionLabels = { top: 'Start', work: 'Work', services: 'Services', about: 'About', contact: 'Contact' };
-  const heroVisual = $('#heroVisual');
+  const sections = ['top', 'experience', 'work', 'services', 'about', 'contact'].map(id => ({ id, el: document.getElementById(id) })).filter(item => item.el);
   let ticking = false;
 
-  const updateActive = () => {
-    const offset = window.innerHeight * 0.38;
+  function update() {
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const ratio = Math.min(1, Math.max(0, window.scrollY / max));
+    root.style.setProperty('--scrollProgress', ratio.toFixed(4));
+    if (progressEl) progressEl.style.transform = `scaleX(${ratio})`;
+    document.body.classList.toggle('is-scrolled', window.scrollY > 20);
+    document.body.classList.toggle('show-back-top', window.scrollY > Math.min(760, window.innerHeight * .75));
+
+    const offset = window.innerHeight * .34;
     let active = 'top';
-    sectionIds.forEach(id => {
-      const el = id === 'top' ? document.body : document.getElementById(id);
-      if (!el) return;
+    sections.forEach(({ id, el }) => {
       const top = id === 'top' ? 0 : el.getBoundingClientRect().top + window.scrollY;
       if (window.scrollY + offset >= top) active = id;
     });
     railLinks.forEach(link => link.classList.toggle('active', link.dataset.section === active));
-    navLinks.forEach(link => {
-      const href = link.getAttribute('href') || '';
-      link.classList.toggle('active', href === `#${active}` || (active === 'top' && href === '#top'));
+    $$('.main-nav a').forEach(link => {
+      const target = (link.getAttribute('href') || '').replace('#', '');
+      link.classList.toggle('active', target === active);
     });
-    if (chapter) chapter.textContent = sectionLabels[active] || active;
-  };
 
-  const update = () => {
+    updateShowcase();
     ticking = false;
-    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    const ratio = Math.min(1, Math.max(0, window.scrollY / max));
-    root.style.setProperty('--scrollProgress', ratio.toFixed(4));
-    if (progress) progress.style.transform = `scaleX(${ratio})`;
-    if (percent) percent.textContent = `${Math.round(ratio * 100)}%`;
-    document.body.classList.toggle('is-scrolled', window.scrollY > 18);
-    document.body.classList.toggle('show-back-top', window.scrollY > Math.min(760, window.innerHeight * .75));
-
-    if (heroVisual) {
-      const rect = heroVisual.getBoundingClientRect();
-      const local = Math.min(1, Math.max(-1, (window.innerHeight * .5 - rect.top) / Math.max(1, window.innerHeight)));
-      root.style.setProperty('--heroShift', `${local * -14}px`);
-      root.style.setProperty('--heroRotate', `${local * 1.7}deg`);
-    }
-    updateActive();
-  };
-
-  const requestUpdate = () => {
+  }
+  function requestUpdate() {
     if (!ticking) {
-      window.requestAnimationFrame(update);
+      requestAnimationFrame(update);
       ticking = true;
     }
-  };
+  }
   window.addEventListener('scroll', requestUpdate, { passive: true });
-  window.addEventListener('resize', requestUpdate);
+  window.addEventListener('resize', requestUpdate, { passive: true });
   update();
 }
 
-
-function setupAnchorNavigation() {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const scrollToTarget = (hash) => {
-    if (!hash || hash === '#') return;
-    if (hash === '#top') {
-      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
-      return;
-    }
-    const target = document.querySelector(hash);
-    if (!target) return;
-    const offset = Math.min(110, Math.max(76, window.innerWidth < 680 ? 78 : 102));
-    const y = target.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top: Math.max(0, y), behavior: prefersReduced ? 'auto' : 'smooth' });
-  };
-
-  $$('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', (event) => {
-      const href = anchor.getAttribute('href');
-      if (!href || href === '#') return;
-      event.preventDefault();
-      scrollToTarget(href);
-      if (history.pushState) history.pushState(null, '', href === '#top' ? window.location.pathname : href);
-    });
-  });
-
-  const backTop = $('#backTop');
-  if (backTop) {
-    backTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
-      if (history.pushState) history.pushState(null, '', window.location.pathname);
-    });
-  }
+function scrollToTarget(hash) {
+  const target = hash === '#top' ? document.body : document.querySelector(hash);
+  if (!target) return;
+  const offset = hash === '#top' ? 0 : 92;
+  const y = hash === '#top' ? 0 : target.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top: Math.max(0, y), behavior: prefersReduced ? 'auto' : 'smooth' });
 }
 
-function setupPointerFX() {
+function setupInteractions() {
+  $('#modalClose')?.addEventListener('click', closeProject);
+  $('#projectModal')?.addEventListener('click', (event) => {
+    if (event.target.id === 'projectModal') closeProject();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeProject();
+  });
+
+  $$('[data-scroll-link]').forEach(link => {
+    link.addEventListener('click', (event) => {
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      event.preventDefault();
+      scrollToTarget(href);
+    });
+  });
+  $('#backTop')?.addEventListener('click', () => scrollToTarget('#top'));
+
+  $('#themeToggle')?.addEventListener('click', () => document.body.classList.toggle('light'));
+  $('#langToggle')?.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'ar' : 'en';
+    localStorage.setItem('portfolio-lang', currentLang);
+    applyStaticLanguage();
+    applyProfile(profileData);
+    renderFilters();
+    renderHeroGallery();
+    renderRunway();
+    renderProjects();
+  });
+
+  $('#projectSearch')?.addEventListener('input', (event) => {
+    searchTerm = event.target.value.trim();
+    renderProjects();
+  });
+
   const aura = $('#cursorAura');
-  const canHover = window.matchMedia('(hover: hover)').matches;
-  if (aura && canHover) {
+  if (aura && !prefersReduced) {
     window.addEventListener('pointermove', (event) => {
-      aura.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+      aura.style.left = `${event.clientX}px`;
+      aura.style.top = `${event.clientY}px`;
     }, { passive: true });
   }
 
-  document.addEventListener('pointermove', (event) => {
-    const card = event.target.closest?.('.project-card');
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const px = x / rect.width;
-    const py = y / rect.height;
-    card.style.setProperty('--mx', `${px * 100}%`);
-    card.style.setProperty('--my', `${py * 100}%`);
-    if (canHover) {
-      const rotateY = (px - .5) * 5;
-      const rotateX = (.5 - py) * 5;
-      card.style.transform = `translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    }
-  });
-  document.addEventListener('pointerout', (event) => {
-    const card = event.target.closest?.('.project-card');
-    if (!card || card.contains(event.relatedTarget)) return;
-    card.style.removeProperty('--mx');
-    card.style.removeProperty('--my');
-    card.style.transform = '';
+  const heroLab = $('#heroLab');
+  if (heroLab && !prefersReduced) {
+    heroLab.addEventListener('pointermove', (event) => {
+      const rect = heroLab.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - .5;
+      const y = (event.clientY - rect.top) / rect.height - .5;
+      heroLab.style.transform = `rotateY(${x * 5}deg) rotateX(${-y * 5}deg)`;
+    });
+    heroLab.addEventListener('pointerleave', () => { heroLab.style.transform = ''; });
+  }
+
+  $$('.magnetic').forEach(node => {
+    node.addEventListener('pointermove', (event) => {
+      const rect = node.getBoundingClientRect();
+      const x = (event.clientX - rect.left - rect.width / 2) * .12;
+      const y = (event.clientY - rect.top - rect.height / 2) * .12;
+      node.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    node.addEventListener('pointerleave', () => { node.style.transform = ''; });
   });
 }
 
 async function init() {
-  setupTheme();
-  setupLanguage();
-  setupModal();
-  setupSearch();
-  setupStarfield();
-  setupScrollFX();
-  setupAnchorNavigation();
-  setupPointerFX();
-  const [profile, projectData] = await Promise.all([
+  applyStaticLanguage();
+  const [loadedProfile, loadedProjects] = await Promise.all([
     getJSON('data/profile.json', fallbackProfile),
     getJSON('data/projects.json', [])
   ]);
-  profileData = profile;
-  projects = projectData;
-  applyStaticLanguage();
+  profileData = loadedProfile;
+  projects = loadedProjects;
   applyProfile(profileData);
-  renderHeroGallery();
   renderFilters();
+  renderHeroGallery();
+  renderRunway();
   renderProjects();
+  setupInteractions();
+  setupScrollExperience();
+  setupStarfield();
   observeReveals();
 }
 
