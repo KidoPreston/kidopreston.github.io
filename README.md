@@ -1,109 +1,124 @@
-# Dark Creative Portfolio Website
+# Kido Preston Portfolio Website
 
-A free GitHub Pages-ready portfolio website for a graphic designer / 3D artist.
+A free GitHub Pages-ready portfolio for Kido Preston: a dark, experimental, blue-accented personal freelance portfolio for graphic design, 3D visualization, AI concepts, VR tours, motion graphics, and concept-to-real environmental branding.
 
-## What is included
+## What changed in this version
 
-- `index.html` — the public portfolio website
-- `admin.html` — a helper editor for creating a new `projects.json`
-- `css/styles.css` — all visual styling and responsive layout
-- `js/app.js` — dynamic project loading, filters, search, modal, dark/light mode
-- `js/admin.js` — the local content editor
-- `data/profile.json` — your personal information, services, skills, and contact links
-- `data/projects.json` — your portfolio projects
-- `assets/projects/` — put your portfolio images here
+- Name updated to **Kido Preston**.
+- Title updated to **Multidisciplinary Visual Designer & 3D Creator**.
+- Dark creative experimental style with blue accents.
+- Hero visual changed to a **rotating 3D portfolio gallery**.
+- Added **English / Arabic language toggle**.
+- Portfolio projects created from the uploaded PDF portfolio.
+- Project modals support multiple-image galleries.
+- Admin helper now supports category, thumbnail, main image, and gallery image paths.
 
-## Important note about “dynamic” editing
+## How to upload to GitHub
 
-GitHub Pages is static hosting. That means there is no real backend database or private admin dashboard unless you connect an external CMS/backend. This website is dynamic on the visitor side because it loads content from JSON files, filters work live, search works live, and projects open in a modal.
+Upload all files and folders inside this folder into the root of your GitHub repository:
 
-To update the live site, replace files in the GitHub repository:
-
-- Change profile details in `data/profile.json`
-- Add/edit projects in `data/projects.json`
-- Upload images into `assets/projects/`
-
-You can use `admin.html` to create/export an updated `projects.json` file.
-
-## How to publish on GitHub Pages for free
-
-1. Create a GitHub account or sign in.
-2. Create a new repository named exactly:
-
-   `yourusername.github.io`
-
-   Replace `yourusername` with your GitHub username.
-
-3. Upload all files from this folder into that repository.
-4. Go to repository `Settings` → `Pages`.
-5. Under “Build and deployment,” choose:
-   - Source: `Deploy from a branch`
-   - Branch: `main`
-   - Folder: `/root`
-6. Save.
-7. Your site should publish at:
-
-   `https://yourusername.github.io`
-
-## How to customize your name and contact
-
-Open `data/profile.json` and replace:
-
-```json
-"name": "Your Name",
-"email": "yourmail@example.com",
-"behance": "",
-"instagram": "",
-"linkedin": ""
+```text
+index.html
+admin.html
+README.md
+.nojekyll
+css/
+js/
+data/
+assets/
 ```
 
-Add your real links between the quotation marks.
+Your repository should look like this:
 
-## How to add a new project manually
-
-1. Put the image in `assets/projects/`, for example:
-
-   `assets/projects/my-project-cover.jpg`
-
-2. Open `data/projects.json`.
-3. Add a new project object:
-
-```json
-{
-  "id": "my-project",
-  "title": "My Project",
-  "subtitle": "Short project description.",
-  "description": "Longer project story here.",
-  "image": "assets/projects/my-project-cover.jpg",
-  "tags": ["3D", "Branding"],
-  "tools": ["Photoshop", "Illustrator", "Blender"],
-  "role": "Designer / 3D Artist",
-  "year": "2026",
-  "highlights": [
-    "Main highlight one",
-    "Main highlight two"
-  ]
-}
+```text
+kidopreston.github.io/
+├── index.html
+├── admin.html
+├── README.md
+├── css/
+├── js/
+├── data/
+└── assets/
 ```
 
-## How to update using admin.html
+Do not upload the whole folder as one folder inside the repository. The `index.html` file must be directly visible in the repository root.
 
-1. Open your published website and go to `/admin.html`.
-2. Click “Load from data/projects.json”.
-3. Add/edit/delete project cards.
-4. Click “Download projects.json”.
-5. In GitHub, replace the old `data/projects.json` with the downloaded file.
-6. Upload any new images into `assets/projects/`.
+## How to edit your personal information
 
-## Recommended image settings
+Edit:
 
-- Best cover size: 1600 × 1100 px or larger
-- Format: JPG or WebP
-- Keep each image under 1–2 MB for faster loading
-- Use short lowercase file names, for example:
+```text
+data/profile.json
+```
 
-  `tp-summer-journey.jpg`
+Useful fields:
 
-## Optional next upgrade
+```json
+"name": "Kido Preston",
+"title": "Multidisciplinary Visual Designer & 3D Creator",
+"email": "kido.preston@gmail.com",
+"phone": "+201092847473",
+"whatsapp": "https://wa.me/201092847473",
+"behance": ""
+```
 
-If you later want a true login-based admin panel that saves instantly from the browser, the best next step is connecting a CMS such as Decap CMS or hosting the site on Netlify. For the free GitHub Pages version, this JSON workflow is the simplest and safest.
+Add your Behance URL when ready:
+
+```json
+"behance": "https://www.behance.net/yourusername"
+```
+
+## How to add project images
+
+1. Upload images to:
+
+```text
+assets/projects/
+```
+
+2. Edit:
+
+```text
+data/projects.json
+```
+
+3. Use image paths like this:
+
+```json
+"thumbnail": "assets/projects/my-cover.jpg",
+"image": "assets/projects/my-cover.jpg",
+"gallery": [
+  "assets/projects/my-cover.jpg",
+  "assets/projects/my-detail-01.jpg",
+  "assets/projects/my-detail-02.jpg"
+]
+```
+
+## How to use the admin page
+
+Open:
+
+```text
+https://kidopreston.github.io/admin.html
+```
+
+Use it to load existing projects, add/edit projects, then download a new `projects.json` file.
+
+Because GitHub Pages is static hosting, the admin page cannot save directly into GitHub by itself. After downloading the new `projects.json`, upload it manually to replace:
+
+```text
+data/projects.json
+```
+
+## Categories included
+
+- Graphic Design
+- Event Design
+- Concept to Real
+- 3D Visualization
+- VR Tours
+- Motion & Video
+
+## Important note
+
+The current project images are rendered from the PDF portfolio you uploaded. Replace or add higher-resolution images anytime by uploading them to `assets/projects/` and updating `data/projects.json`.

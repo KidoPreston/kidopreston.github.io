@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>Portfolio Updater</title>
+  <title>Kido Preston Portfolio Updater</title>
   <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -12,7 +12,7 @@
   <div class="noise" aria-hidden="true"></div>
   <canvas id="starfield" aria-hidden="true"></canvas>
   <header class="site-header">
-    <a class="brand" href="index.html"><span class="brand-mark">◈</span><span>Portfolio Updater</span></a>
+    <a class="brand" href="index.html"><span class="brand-mark">◈</span><span>Kido Preston Updater</span></a>
     <div class="header-actions">
       <a class="pill-link" href="index.html">View Site</a>
     </div>
@@ -20,9 +20,9 @@
 
   <main class="admin-wrap">
     <p class="eyebrow">Static-site editor</p>
-    <h1 style="font-size:clamp(2.6rem,7vw,5.8rem)">Update your portfolio content.</h1>
+    <h1 style="font-size:clamp(2.6rem,7vw,5.8rem)">Update Kido Preston portfolio content.</h1>
     <div class="help-box">
-      This editor helps you create a new <strong>data/projects.json</strong> file. Because GitHub Pages is static hosting, this page cannot save directly to GitHub by itself. Use it to add/edit projects, download the JSON, then upload/replace <strong>data/projects.json</strong> in your GitHub repository.
+      This editor helps you create a new <strong>data/projects.json</strong> file. Because GitHub Pages is static hosting, this page cannot save directly to GitHub by itself. Use it to add/edit projects, download the JSON, then upload/replace <strong>data/projects.json</strong> in your GitHub repository. Upload your images first into <strong>assets/projects/</strong>, then paste the image paths here.
     </div>
 
     <section class="admin-panel">
@@ -46,6 +46,14 @@
           <label for="year">Year</label>
           <input id="yearInput" placeholder="2026" />
         </div>
+        <div class="admin-field">
+          <label for="category">Category</label>
+          <input id="category" placeholder="Graphic Design, 3D Visualization, VR Tours..." />
+        </div>
+        <div class="admin-field">
+          <label for="thumbnail">Thumbnail path</label>
+          <input id="thumbnail" placeholder="assets/projects/my-cover.jpg" />
+        </div>
         <div class="admin-field full">
           <label for="subtitle">Short subtitle</label>
           <input id="subtitle" placeholder="A cinematic claymation travel world for an internal event." />
@@ -67,8 +75,12 @@
           <input id="role" placeholder="Art Direction / 3D Artist" />
         </div>
         <div class="admin-field">
-          <label for="image">Image path or URL</label>
+          <label for="image">Main image path or URL</label>
           <input id="image" placeholder="assets/projects/project-name.jpg" />
+        </div>
+        <div class="admin-field full">
+          <label for="gallery">Gallery image paths, one per line</label>
+          <textarea id="gallery" placeholder="assets/projects/project-01.jpg&#10;assets/projects/project-02.jpg"></textarea>
         </div>
         <div class="admin-field full">
           <label for="highlights">Highlights, one per line</label>

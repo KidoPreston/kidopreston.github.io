@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of a graphic designer and 3D artist." />
+  <meta name="description" content="Kido Preston - multidisciplinary visual designer, 3D creator, AI visual artist, VR tours and motion graphics portfolio." />
   <meta name="theme-color" content="#07070b" />
-  <title>Creative Portfolio | Graphic Designer & 3D Artist</title>
+  <title>Kido Preston | Visual Designer & 3D Creator</title>
   <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -16,17 +16,18 @@
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Go to top">
       <span class="brand-mark">◈</span>
-      <span data-profile="shortName">Portfolio</span>
+      <span data-profile="shortName">Kido Preston</span>
     </a>
     <nav class="main-nav" aria-label="Main navigation">
-      <a href="#work">Work</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#work" data-i18n="navWork">Work</a>
+      <a href="#services" data-i18n="navServices">Services</a>
+      <a href="#about" data-i18n="navAbout">About</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
     </nav>
     <div class="header-actions">
       <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">☾</button>
-      <a class="pill-link" href="admin.html">Update</a>
+      <button class="icon-btn lang-btn" id="langToggle" type="button" aria-label="Switch language">AR</button>
+      <a class="pill-link" href="admin.html" data-i18n="updateBtn">Update</a>
     </div>
   </header>
 
@@ -34,29 +35,31 @@
     <section class="hero section-pad">
       <div class="hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Graphic Design · 3D Art · Motion Concepts</p>
-          <h1><span data-profile="name">Your Name</span><br><span class="gradient-text" data-profile="title">Visual Designer & 3D Artist</span></h1>
+          <p class="eyebrow" data-i18n="heroEyebrow">Graphic Design · 3D Visualization · AI · VR · Motion</p>
+          <h1><span data-profile="name">Kido Preston</span><br><span class="gradient-text" data-profile="title">Multidisciplinary Visual Designer & 3D Creator</span></h1>
           <p class="hero-text" data-profile="intro">I build cinematic visual identities, immersive event worlds, 3D characters, and creative campaigns that feel bold, premium, and memorable.</p>
           <div class="hero-actions">
-            <a class="primary-btn" href="#work">View Portfolio</a>
-            <a class="secondary-btn" href="#contact">Let’s Collaborate</a>
+            <a class="primary-btn" href="#work" data-i18n="viewPortfolio">View Portfolio</a>
+            <a class="secondary-btn" href="#contact" data-i18n="letsCollaborate">Let’s Collaborate</a>
           </div>
           <div class="stats" id="stats"></div>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Abstract designer orbit visual">
-          <div class="orb orb-main"></div>
-          <div class="orb orb-second"></div>
-          <div class="orbit orbit-one"><span>3D</span></div>
-          <div class="orbit orbit-two"><span>AI</span></div>
-          <div class="orbit orbit-three"><span>UX</span></div>
+        <div class="hero-visual reveal" aria-label="Rotating 3D portfolio gallery visual">
+          <div class="gallery-scene" id="heroGallery" aria-hidden="true"></div>
+          <div class="gallery-core">
+            <span>2D</span>
+            <span>3D</span>
+            <span>AI</span>
+            <span>VR</span>
+          </div>
           <div class="glass-card floating-card card-one">
-            <small>Current Focus</small>
-            <strong data-profile="focus">Creative portfolio systems</strong>
+            <small data-i18n="currentFocus">Current Focus</small>
+            <strong data-profile="focus">Graphic Design · 3D Visuals · AI · VR · Motion</strong>
           </div>
           <div class="glass-card floating-card card-two">
-            <small>Style</small>
-            <strong>Cinematic · Dark · Premium</strong>
+            <small data-i18n="styleLabel">Style</small>
+            <strong data-profile="heroStyle">Crazy Creative · Experimental · Trustworthy</strong>
           </div>
         </div>
       </div>
@@ -64,25 +67,25 @@
 
     <section class="marquee-strip" aria-label="Creative skills">
       <div class="marquee-track">
-        <span>Branding</span><span>3D Design</span><span>Event Concepts</span><span>AI Visuals</span><span>Motion Storyboards</span><span>Art Direction</span>
-        <span>Branding</span><span>3D Design</span><span>Event Concepts</span><span>AI Visuals</span><span>Motion Storyboards</span><span>Art Direction</span>
+        <span>Graphic Design</span><span>3D Visualization</span><span>AI Concepts</span><span>VR Tours</span><span>Motion Graphics</span><span>Concept to Real</span>
+        <span>Graphic Design</span><span>3D Visualization</span><span>AI Concepts</span><span>VR Tours</span><span>Motion Graphics</span><span>Concept to Real</span>
       </div>
     </section>
 
     <section class="section-pad" id="work">
       <div class="section-head reveal">
         <div>
-          <p class="eyebrow">Selected work</p>
-          <h2>Portfolio Projects</h2>
+          <p class="eyebrow" data-i18n="selectedWork">Selected work</p>
+          <h2 data-i18n="portfolioProjects">Portfolio Categories</h2>
         </div>
-        <p>Filter by discipline, open a project, and update all content from <code>data/projects.json</code>.</p>
+        <p data-i18n="workIntro">Filter by category, open a project, and explore selected work from graphic design, 3D visualization, VR tours, motion, and concept-to-real projects.</p>
       </div>
 
       <div class="toolbar reveal">
         <div class="filters" id="filters" aria-label="Project filters"></div>
         <label class="search-box" for="projectSearch">
           <span>⌕</span>
-          <input id="projectSearch" type="search" placeholder="Search projects..." />
+          <input id="projectSearch" type="search" placeholder="Search projects..." data-i18n-placeholder="searchPlaceholder" />
         </label>
       </div>
 
@@ -92,10 +95,10 @@
     <section class="section-pad services" id="services">
       <div class="section-head reveal">
         <div>
-          <p class="eyebrow">What I do</p>
-          <h2>Creative Services</h2>
+          <p class="eyebrow" data-i18n="whatIDo">What I do</p>
+          <h2 data-i18n="creativeServices">Creative Services</h2>
         </div>
-        <p>Built for designers who work across static visuals, 3D scenes, campaigns, events, and AI-assisted production.</p>
+        <p data-i18n="servicesIntro">A flexible visual practice built for freelance clients who need design, 3D, AI concepts, VR, and motion from one creative partner.</p>
       </div>
       <div class="service-grid" id="serviceGrid"></div>
     </section>
@@ -103,8 +106,8 @@
     <section class="section-pad about" id="about">
       <div class="about-card reveal">
         <div>
-          <p class="eyebrow">About</p>
-          <h2>Designing visual worlds, not just single images.</h2>
+          <p class="eyebrow" data-i18n="aboutEyebrow">About</p>
+          <h2 data-i18n="aboutHeading">Designing visual worlds, not just single images.</h2>
         </div>
         <div>
           <p data-profile="about">I combine graphic design, 3D composition, event storytelling, and AI visual workflows to turn ideas into polished visual systems.</p>
@@ -115,8 +118,8 @@
 
     <section class="section-pad contact" id="contact">
       <div class="contact-card reveal">
-        <p class="eyebrow">Available for freelance / collaborations</p>
-        <h2>Let’s create something that people remember.</h2>
+        <p class="eyebrow" data-i18n="contactEyebrow">Available for freelance / collaborations</p>
+        <h2 data-i18n="contactHeading">Let’s create something that people remember.</h2>
         <p data-profile="contactText">For branding, 3D visual concepts, portfolio reviews, event campaign visuals, or motion design storyboards.</p>
         <div class="contact-actions" id="contactActions"></div>
       </div>
@@ -124,8 +127,8 @@
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> <span data-profile="name">Your Name</span>. Built for GitHub Pages.</p>
-    <a href="#top">Back to top ↑</a>
+    <p>© <span id="year"></span> <span data-profile="name">Kido Preston</span>. Built for GitHub Pages.</p>
+    <a href="#top" data-i18n="backToTop">Back to top ↑</a>
   </footer>
 
   <dialog class="project-modal" id="projectModal">

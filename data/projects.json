@@ -1,98 +1,360 @@
 [
   {
-    "id": "tp-summer-journey",
-    "title": "TP Summer Journey",
-    "subtitle": "A claymation-inspired travel passport world with Egyptian destinations, stamps, and cinematic scenes.",
-    "description": "A playful internal event visual system built around a magical passport journey across Alexandria, Port Said, Ismailia, South Sinai, Fayoum, Luxor, and Aswan. The project direction included start/end animation frames, stylized 3D scenes, stamp moments, regional food and music references, and a cohesive claymation look.",
-    "image": "",
-    "tags": ["3D", "Event Design", "AI Visuals"],
-    "tools": ["Photoshop", "AI Image Generation", "Video Prompts", "Art Direction"],
-    "role": "Visual Direction / Prompt Design / Storyboarding",
-    "year": "2026",
+    "id": "social-media-designs",
+    "title": "Social Media Design Collection",
+    "category": "Graphic Design",
+    "subtitle": "A set of 2D social media creatives for hiring, events, awareness days, and internal announcements.",
+    "description": "A collection of social media design work covering promotional posts, recruitment visuals, awareness days, speaker campaigns, tournaments, and branded communication layouts. The direction balances readable messaging, bold composition, and visual variety.",
+    "thumbnail": "assets/projects/portfolio-page-01.jpg",
+    "image": "assets/projects/portfolio-page-01.jpg",
+    "gallery": [
+      "assets/projects/portfolio-page-01.jpg",
+      "assets/projects/portfolio-page-02.jpg"
+    ],
+    "tags": [
+      "Graphic Design",
+      "Social Media",
+      "2D"
+    ],
+    "tools": [
+      "Photoshop",
+      "Illustrator",
+      "Layout Design",
+      "Brand Guidelines"
+    ],
+    "role": "Graphic Designer",
+    "year": "Portfolio work",
     "highlights": [
-      "Built a complete journey-based creative concept",
-      "Created scene prompts for start and end animation frames",
-      "Developed destination-specific visual details and stamps"
-    ]
+      "Multi-format social media visuals",
+      "Recruitment and campaign communication",
+      "Bold 2D layouts with branded styling"
+    ],
+    "translations": {
+      "ar": {
+        "title": "تصميمات سوشيال ميديا",
+        "category": "تصميم جرافيك",
+        "subtitle": "مجموعة تصميمات 2D للسوشيال ميديا، الإعلانات، الفعاليات، والتواصل الداخلي.",
+        "description": "مجموعة أعمال سوشيال ميديا تشمل إعلانات توظيف، بوستات فعاليات، أيام عالمية، حملات، وبوستات تواصل داخلي بأسلوب واضح وجريء."
+      }
+    }
   },
   {
-    "id": "world-cup-fan-zone",
-    "title": "World Cup Fan Zone",
-    "subtitle": "Dark cinematic event branding for football streaming, prediction games, and employee engagement.",
-    "description": "A high-energy visual direction for a corporate World Cup fan-zone experience. The concept included banners, mascots, social teasers, matchday visuals, prediction mechanics, and large-format branded spaces with stadium lighting and football energy.",
-    "image": "",
-    "tags": ["Branding", "Event Design", "Campaign"],
-    "tools": ["Photoshop", "Illustrator", "AI Visuals", "Art Direction"],
-    "role": "Creative Concept / Campaign Visuals",
-    "year": "2026",
+    "id": "internal-communication-designs",
+    "title": "Internal Communication Designs",
+    "category": "Graphic Design",
+    "subtitle": "Employee communication posters and internal campaign visuals with strong messaging and themed art direction.",
+    "description": "Internal communication designs built for employee engagement, competitions, rules, activities, and themed announcements. The work uses campaign-style graphics to make workplace information feel more visual and memorable.",
+    "thumbnail": "assets/projects/portfolio-page-03.jpg",
+    "image": "assets/projects/portfolio-page-03.jpg",
+    "gallery": [
+      "assets/projects/portfolio-page-03.jpg"
+    ],
+    "tags": [
+      "Graphic Design",
+      "Internal Communication",
+      "Campaign"
+    ],
+    "tools": [
+      "Photoshop",
+      "Illustrator",
+      "Copy Layout"
+    ],
+    "role": "Graphic Designer / Campaign Visual Designer",
+    "year": "Portfolio work",
     "highlights": [
-      "Designed large-format fan-zone banner directions",
-      "Created mascot and football campaign concepts",
-      "Prepared visual prompts for multiple ratios and formats"
-    ]
+      "Employee-facing campaign visuals",
+      "Competition and announcement graphics",
+      "Clear hierarchy for internal messages"
+    ],
+    "translations": {
+      "ar": {
+        "title": "تصميمات تواصل داخلي",
+        "category": "تصميم جرافيك",
+        "subtitle": "بوسترات وتصميمات داخلية للموظفين بأسلوب بصري قوي وواضح.",
+        "description": "تصميمات موجهة للتواصل الداخلي والمسابقات والأنشطة والإعلانات، بتحويل المعلومات إلى شكل بصري جذاب وسهل الفهم."
+      }
+    }
   },
   {
-    "id": "betmgm-workspace-branding",
-    "title": "BetMGM Workspace Branding",
-    "subtitle": "Interior branding direction with wall visuals, danglers, and premium office atmosphere.",
-    "description": "A workspace visual branding concept focused on branded walls, round danglers, interior applications, and polished corporate presentation. The goal was to create a strong brand presence while maintaining a professional office environment.",
-    "image": "",
-    "tags": ["Branding", "Interior", "Graphic Design"],
-    "tools": ["Photoshop", "Illustrator", "AI Visualization"],
-    "role": "Branding Designer / Visualizer",
-    "year": "2026",
+    "id": "logo-identity-design",
+    "title": "Logo & Identity Design",
+    "category": "Graphic Design",
+    "subtitle": "Logo systems, color palettes, pattern applications, and brand presentation layouts.",
+    "description": "A logo and identity design collection showing brand marks, color systems, pattern directions, and identity presentation mockups. The work focuses on clean brand structure and flexible visual applications.",
+    "thumbnail": "assets/projects/portfolio-page-04.jpg",
+    "image": "assets/projects/portfolio-page-04.jpg",
+    "gallery": [
+      "assets/projects/portfolio-page-04.jpg"
+    ],
+    "tags": [
+      "Brand Identity",
+      "Logo Design",
+      "2D"
+    ],
+    "tools": [
+      "Illustrator",
+      "Photoshop",
+      "Branding"
+    ],
+    "role": "Brand Identity Designer",
+    "year": "Portfolio work",
     "highlights": [
-      "Created interior visual branding options",
-      "Explored different wall and hanging signage systems",
-      "Adjusted logo placement and premium lighting direction"
-    ]
+      "Logo systems and variations",
+      "Color palette and pattern design",
+      "Brand application mockups"
+    ],
+    "translations": {
+      "ar": {
+        "title": "تصميم لوجو وهوية بصرية",
+        "category": "تصميم جرافيك",
+        "subtitle": "أنظمة لوجو، ألوان، باترن، وتطبيقات هوية بصرية.",
+        "description": "مجموعة أعمال هوية بصرية تعرض علامات تجارية، ألوان، باترن، وتطبيقات للبراند بأسلوب منظم وقابل للاستخدام."
+      }
+    }
   },
   {
-    "id": "riyadh-air-activation",
-    "title": "Riyadh Air Activation",
-    "subtitle": "A corporate activation identity with screen visuals, photo frame concepts, and travel-led creative assets.",
-    "description": "A visual package for a travel-themed activation, including screen layouts, photo frame designs, country-inspired visuals, and branded experience elements. The direction focused on clean premium layouts, aircraft references, and modern event communication.",
-    "image": "",
-    "tags": ["Activation", "Graphic Design", "Campaign"],
-    "tools": ["Photoshop", "Illustrator", "Layout Design"],
-    "role": "Graphic Designer / Event Visuals",
-    "year": "2026",
+    "id": "wall-gate-branding",
+    "title": "Wall & Gate Branding - Concept to Real",
+    "category": "Concept to Real",
+    "subtitle": "Wall branding and AI-based gate branding concepts translated into real environmental applications.",
+    "description": "Environmental branding concepts for walls and gates, including AI-based design exploration and real-world application previews. The direction turns a plain space into a branded visual moment with strong entrance impact.",
+    "thumbnail": "assets/projects/portfolio-page-06.jpg",
+    "image": "assets/projects/portfolio-page-06.jpg",
+    "gallery": [
+      "assets/projects/portfolio-page-05.jpg",
+      "assets/projects/portfolio-page-06.jpg"
+    ],
+    "tags": [
+      "Concept to Real",
+      "Wall Branding",
+      "AI Based Design"
+    ],
+    "tools": [
+      "Photoshop",
+      "Illustrator",
+      "AI Visual Direction",
+      "Print Design"
+    ],
+    "role": "Environmental Branding Designer",
+    "year": "Portfolio work",
     "highlights": [
-      "Designed screen and print-ready activation assets",
-      "Built multiple visual routes for event communication",
-      "Created country-themed supporting visuals"
-    ]
+      "AI-based gate visual concept",
+      "Wall branding direction",
+      "Before/after and real-space application"
+    ],
+    "translations": {
+      "ar": {
+        "title": "براندنج حوائط وبوابات - من الفكرة للتنفيذ",
+        "category": "من الفكرة للتنفيذ",
+        "subtitle": "تصميمات حوائط وبوابات مبنية على أفكار AI وتطبيقات حقيقية في المساحات.",
+        "description": "اتجاهات براندنج للمساحات والبوابات لتحويل المكان إلى تجربة بصرية واضحة وقوية عند الدخول."
+      }
+    }
   },
   {
-    "id": "mascot-campaign",
-    "title": "3D Mascot Campaign",
-    "subtitle": "A cinematic mascot world using falcon, bull, and tiger characters in sports poses.",
-    "description": "A dramatic sports campaign concept featuring stylized animal mascots, trophy moments, stadium lighting, confetti, smoke, football poses, and dynamic action compositions. The direction focused on keeping character identity consistent across different poses and banner formats.",
-    "image": "",
-    "tags": ["3D", "Character Design", "Campaign"],
-    "tools": ["AI Image Generation", "Art Direction", "Photoshop"],
-    "role": "3D Visual Direction / Character Consistency",
-    "year": "2026",
+    "id": "event-visual-designs",
+    "title": "Event Visual Design",
+    "category": "Event Design",
+    "subtitle": "Themed 2D event visuals for Eid Al-Adha and Christmas activations.",
+    "description": "Event design visuals for seasonal corporate activations, including Eid Al-Adha AI-based design and Christmas event communication. The work combines illustration, branded messaging, and large-format event backdrops.",
+    "thumbnail": "assets/projects/portfolio-page-07.jpg",
+    "image": "assets/projects/portfolio-page-07.jpg",
+    "gallery": [
+      "assets/projects/portfolio-page-07.jpg",
+      "assets/projects/portfolio-page-08.jpg"
+    ],
+    "tags": [
+      "Event Design",
+      "Graphic Design",
+      "AI Based Design"
+    ],
+    "tools": [
+      "Photoshop",
+      "Illustrator",
+      "AI Visuals",
+      "Print Design"
+    ],
+    "role": "Event Visual Designer",
+    "year": "Portfolio work",
     "highlights": [
-      "Directed multiple mascot poses and campaign frames",
-      "Maintained identity consistency across versions",
-      "Created cinematic sports lighting and composition prompts"
-    ]
+      "Seasonal event visual systems",
+      "Large-format backdrop concepts",
+      "AI-assisted event art direction"
+    ],
+    "translations": {
+      "ar": {
+        "title": "تصميمات فعاليات",
+        "category": "تصميم فعاليات",
+        "subtitle": "تصميمات 2D لفعاليات موسمية مثل عيد الأضحى والكريسماس.",
+        "description": "تصميمات فعاليات كوربريت موسمية تجمع بين الرسائل، الرسم، البراندنج، والخلفيات الكبيرة الخاصة بالحدث."
+      }
+    }
   },
   {
-    "id": "telescope-countries",
-    "title": "TP Island Telescope Countries",
-    "subtitle": "A skyline and sticker system showing countries visible from a themed telescope installation.",
-    "description": "A location-based environmental design idea for a telescope room, using country skylines, labels, and print-and-cut emblem stickers for each destination. The system was designed to work horizontally across glass and walls.",
-    "image": "",
-    "tags": ["Environmental Design", "Sticker Design", "Graphic Design"],
-    "tools": ["Illustrator", "AI Visuals", "Print Design"],
-    "role": "Visual Concept / Sticker System",
-    "year": "2026",
+    "id": "architectural-visualization",
+    "title": "Architectural Visualization",
+    "category": "3D Visualization",
+    "subtitle": "3D architectural renders, interiors, residential buildings, hotel projects, and recreational resort visualization.",
+    "description": "A 3D architectural visualization collection including bedroom and living room interiors, proposed roof design, residential building studies, hotel concepts, and recreational resort planning. The work shows modeling, camera composition, render treatment, and post-production refinement.",
+    "thumbnail": "assets/projects/portfolio-page-13.jpg",
+    "image": "assets/projects/portfolio-page-13.jpg",
+    "gallery": [
+      "assets/projects/portfolio-page-09.jpg",
+      "assets/projects/portfolio-page-10.jpg",
+      "assets/projects/portfolio-page-11.jpg",
+      "assets/projects/portfolio-page-12.jpg",
+      "assets/projects/portfolio-page-13.jpg",
+      "assets/projects/portfolio-page-14.jpg",
+      "assets/projects/portfolio-page-15.jpg"
+    ],
+    "tags": [
+      "3D Visualization",
+      "Arch-Viz",
+      "Interior Render"
+    ],
+    "tools": [
+      "3ds Max",
+      "V-Ray",
+      "Photoshop",
+      "Post Production"
+    ],
+    "role": "3D Visualizer / Arch-Viz Artist",
+    "year": "2016-2020 / Portfolio work",
     "highlights": [
-      "Created a destination-based wall/glass visual concept",
-      "Designed sticker/emblem directions for multiple countries",
-      "Adapted layouts for horizontal environmental application"
-    ]
+      "Interior and exterior 3D renders",
+      "Resort and hotel visualization",
+      "Raw render to post-production workflow"
+    ],
+    "translations": {
+      "ar": {
+        "title": "تصور معماري ثلاثي الأبعاد",
+        "category": "تصور ثلاثي الأبعاد",
+        "subtitle": "رندرات معمارية، داخلي، مباني، فنادق، ومشروعات منتجعات.",
+        "description": "مجموعة أعمال Arch-Viz تشمل تصميمات داخلية وخارجية، مباني سكنية، فنادق، ومنتجعات معمارية مع رندرات ومعالجة نهائية."
+      }
+    }
+  },
+  {
+    "id": "vr-virtual-reality-tours",
+    "title": "3D VR Virtual Reality Tours",
+    "category": "VR Tours",
+    "subtitle": "Interactive 3D VR tour environments for Wolt, Alhokair, L'Oréal, BMW, and Yves Rocher concepts.",
+    "description": "A virtual reality tour collection featuring branded spatial experiences and 360-style environments for different brands and countries, including Wolt Finland, Alhokair Saudi Arabia, L'Oréal France, BMW Germany, and Yves Rocher Germany.",
+    "thumbnail": "assets/projects/portfolio-page-16.jpg",
+    "image": "assets/projects/portfolio-page-16.jpg",
+    "gallery": [
+      "assets/projects/portfolio-page-16.jpg",
+      "assets/projects/portfolio-page-17.jpg",
+      "assets/projects/portfolio-page-18.jpg",
+      "assets/projects/portfolio-page-19.jpg",
+      "assets/projects/portfolio-page-20.jpg"
+    ],
+    "tags": [
+      "VR Tours",
+      "3D",
+      "Interactive Environments"
+    ],
+    "tools": [
+      "3D Modeling",
+      "VR Tour Workflow",
+      "Photoshop",
+      "Brand Visualization"
+    ],
+    "role": "3D VR Visualizer",
+    "year": "Portfolio work",
+    "highlights": [
+      "Branded virtual environments",
+      "360-style interior experiences",
+      "Multiple international brand concepts"
+    ],
+    "translations": {
+      "ar": {
+        "title": "جولات واقع افتراضي ثلاثية الأبعاد",
+        "category": "جولات VR",
+        "subtitle": "بيئات VR تفاعلية لبراندات مثل Wolt وAlhokair وL'Oréal وBMW وYves Rocher.",
+        "description": "مجموعة جولات واقع افتراضي تعرض بيئات ثلاثية الأبعاد وتجارب مكانية للبراندات بستايل تفاعلي."
+      }
+    }
+  },
+  {
+    "id": "motion-graphics-video",
+    "title": "Motion Graphics & Video Design",
+    "category": "Motion & Video",
+    "subtitle": "3D + After Effects animation, corporate video visuals, app videos, and logo transformation samples.",
+    "description": "Motion and video design work including 3D + After Effects animation, mobile app promotional visuals, corporate video and voice-over assets, and logo transformation motion samples.",
+    "thumbnail": "assets/projects/portfolio-page-21.jpg",
+    "image": "assets/projects/portfolio-page-21.jpg",
+    "gallery": [
+      "assets/projects/portfolio-page-21.jpg",
+      "assets/projects/portfolio-page-22.jpg",
+      "assets/projects/portfolio-page-23.jpg",
+      "assets/projects/portfolio-page-24.jpg"
+    ],
+    "tags": [
+      "Motion Graphics",
+      "Video",
+      "Animation"
+    ],
+    "tools": [
+      "After Effects",
+      "Premiere",
+      "3D",
+      "Photoshop"
+    ],
+    "role": "Motion Graphics Designer",
+    "year": "Portfolio work",
+    "highlights": [
+      "3D + AE animation frames",
+      "Corporate and app video visuals",
+      "Logo transformation motion concepts"
+    ],
+    "translations": {
+      "ar": {
+        "title": "موشن جرافيك وتصميم فيديو",
+        "category": "موشن وفيديو",
+        "subtitle": "3D + After Effects، فيديوهات تطبيقات، فيديوهات كوربريت، وتحويلات لوجو.",
+        "description": "أعمال موشن وفيديو تشمل فريمات أنيميشن، فيديوهات تطبيقات، فيديوهات كوربريت، ونماذج logo transformation."
+      }
+    }
+  },
+  {
+    "id": "booth-floor-branding-3d",
+    "title": "3D Booth & Floor Branding - Concept to Real",
+    "category": "Concept to Real",
+    "subtitle": "Summer booth, IQOS floor, and AT&T floor branding projects moving from 3D concept to real space.",
+    "description": "3D concept-to-real environmental projects including a summer booth, IQOS floor branding, and AT&T floor design. The projects show how spatial 3D planning, materials, brand placement, and layout can translate into real-world installations.",
+    "thumbnail": "assets/projects/portfolio-page-25.jpg",
+    "image": "assets/projects/portfolio-page-25.jpg",
+    "gallery": [
+      "assets/projects/portfolio-page-25.jpg",
+      "assets/projects/portfolio-page-26.jpg",
+      "assets/projects/portfolio-page-27.jpg"
+    ],
+    "tags": [
+      "Concept to Real",
+      "3D Visualization",
+      "Environmental Branding"
+    ],
+    "tools": [
+      "3ds Max",
+      "Photoshop",
+      "Print Design",
+      "Branding"
+    ],
+    "role": "3D Visualizer / Environmental Designer",
+    "year": "Portfolio work",
+    "highlights": [
+      "3D booth concept translated into real setup",
+      "Floor branding and office space applications",
+      "Spatial design with brand storytelling"
+    ],
+    "translations": {
+      "ar": {
+        "title": "بوثات وبراندنج مساحات 3D - من الفكرة للتنفيذ",
+        "category": "من الفكرة للتنفيذ",
+        "subtitle": "بوث صيفي، IQOS floor، وAT&T floor من 3D concept إلى مساحة حقيقية.",
+        "description": "مشروعات بيئية ثلاثية الأبعاد تظهر تحويل الفكرة إلى تنفيذ واقعي من خلال التخطيط المكاني، المواد، أماكن البراند، والتصميم."
+      }
+    }
   }
 ]

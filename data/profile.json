@@ -1,55 +1,144 @@
 {
-  "name": "Your Name",
-  "shortName": "Portfolio",
-  "title": "Graphic Designer & 3D Artist",
-  "intro": "I create bold visual identities, cinematic 3D worlds, event concepts, AI-driven visuals, and motion-ready storyboards for brands that need to stand out.",
-  "focus": "Graphic Design · 3D · AI Visuals",
-  "about": "I work across graphic design, 3D art direction, event storytelling, and AI-assisted production. My focus is creating complete visual worlds: from campaign look and feel to environments, characters, posters, social content, and motion prompts.",
-  "contactText": "For branding, 3D visual concepts, event campaign visuals, AI image direction, or motion design storyboards, reach out and let’s build something memorable.",
-  "email": "yourmail@example.com",
-  "phone": "",
+  "name": "Kido Preston",
+  "shortName": "Kido Preston",
+  "title": "Multidisciplinary Visual Designer & 3D Creator",
+  "intro": "I create bold visual systems across graphic design, 3D visualization, AI-driven concepts, VR tours, motion graphics, and event experiences for freelance clients who need work that feels different, memorable, and production-ready.",
+  "focus": "Graphic Design · 3D Visuals · AI · VR · Motion",
+  "about": "I am a multidisciplinary visual creator working across 2D design, 3D visualization, architectural renders, virtual reality tours, AI-assisted concept design, motion graphics, event visuals, and concept-to-real branding. My work connects idea, mood, layout, space, and storytelling into one complete visual direction.",
+  "contactText": "Available for freelance collaborations, event visuals, brand campaigns, 3D visualization, AI concept development, VR tours, and motion-ready visual systems.",
+  "email": "kido.preston@gmail.com",
+  "phone": "+201092847473",
+  "whatsapp": "https://wa.me/201092847473",
   "behance": "",
   "instagram": "",
   "linkedin": "",
+  "heroStyle": "Crazy Creative · Experimental · Trustworthy",
   "stats": [
-    { "value": "30+", "label": "Creative concepts" },
-    { "value": "3D", "label": "Visual direction" },
-    { "value": "AI", "label": "Production workflow" }
+    {
+      "value": "2D+3D",
+      "label": "Visual systems"
+    },
+    {
+      "value": "VR",
+      "label": "Interactive tours"
+    },
+    {
+      "value": "AI",
+      "label": "Concept workflow"
+    }
   ],
   "skills": [
+    "Graphic Design",
+    "3D Visualization",
+    "Architectural Visualization",
+    "VR Tours",
+    "Motion Graphics",
+    "AI Visual Direction",
     "Brand Identity",
-    "3D Design",
+    "Social Media Design",
+    "Internal Communication",
     "Event Visuals",
-    "AI Art Direction",
-    "Motion Prompts",
-    "Storyboards",
-    "Social Campaigns",
+    "Wall Branding",
+    "Gate Branding",
+    "Concept to Real",
     "Print Design",
     "Photoshop",
     "Illustrator",
-    "Blender / 3D",
-    "Creative Direction"
+    "3ds Max",
+    "V-Ray",
+    "After Effects",
+    "Premiere",
+    "Blender",
+    "Midjourney",
+    "Runway",
+    "VEO",
+    "Kling",
+    "ComfyUI"
   ],
   "services": [
     {
       "icon": "◆",
-      "title": "Brand Identity",
-      "text": "Logo systems, key visuals, campaign directions, social templates, and premium visual languages."
+      "title": "Graphic Design Systems",
+      "text": "Social media designs, campaign visuals, brand identity, internal communication, presentation visuals, and print-ready layouts."
     },
     {
       "icon": "◐",
-      "title": "3D Art Direction",
-      "text": "Stylized environments, 3D characters, claymation concepts, object design, and cinematic scenes."
+      "title": "3D Visualization",
+      "text": "Architectural renders, interior/exterior visualization, booth design, floor branding, and concept-to-real environments."
     },
     {
       "icon": "✦",
-      "title": "Event Concepts",
-      "text": "Immersive corporate event themes, activation ideas, venue design, stickers, signage, and print assets."
+      "title": "AI Concept Direction",
+      "text": "Fast creative routes, moodboards, surreal visual concepts, story frames, and production-ready AI visual direction."
     },
     {
       "icon": "▣",
-      "title": "Motion Storyboards",
-      "text": "Start/end frames, scene sequencing, camera movement, AI video prompts, and dynamic storytelling."
+      "title": "VR & Motion Experiences",
+      "text": "3D virtual reality tours, motion graphics, animated visual systems, corporate videos, and immersive digital storytelling."
     }
-  ]
+  ],
+  "translations": {
+    "ar": {
+      "title": "مصمم بصري شامل وصانع محتوى ثلاثي الأبعاد",
+      "intro": "أصمم عوالم بصرية جريئة تجمع بين التصميم الجرافيكي، التصور ثلاثي الأبعاد، الذكاء الاصطناعي، جولات الواقع الافتراضي، الموشن جرافيك، وتجارب الفعاليات لعملاء فريلانس يريدون نتائج مختلفة وجاهزة للتنفيذ.",
+      "focus": "تصميم جرافيك · 3D · ذكاء اصطناعي · VR · موشن",
+      "about": "أنا صانع بصري متعدد التخصصات أعمل في التصميم ثنائي الأبعاد، التصور ثلاثي الأبعاد، الرندرات المعمارية، جولات الواقع الافتراضي، التصميم بالذكاء الاصطناعي، الموشن جرافيك، وتصميم الفعاليات. هدفي تحويل الفكرة إلى اتجاه بصري كامل له شخصية وقصة وشكل واضح.",
+      "contactText": "متاح لتعاونات فريلانس في تصميم الحملات، 3D visualization، أفكار AI، جولات VR، تصميم الفعاليات، والموشن جرافيك.",
+      "heroStyle": "تجريبي · جريء · حديث · موثوق",
+      "stats": [
+        {
+          "value": "2D+3D",
+          "label": "أنظمة بصرية"
+        },
+        {
+          "value": "VR",
+          "label": "جولات تفاعلية"
+        },
+        {
+          "value": "AI",
+          "label": "تطوير أفكار"
+        }
+      ],
+      "skills": [
+        "تصميم جرافيك",
+        "تصور ثلاثي الأبعاد",
+        "تصميم معماري",
+        "جولات VR",
+        "موشن جرافيك",
+        "إخراج بصري بالذكاء الاصطناعي",
+        "هوية بصرية",
+        "تصميم سوشيال ميديا",
+        "تصميم فعاليات",
+        "Branding",
+        "Concept to Real",
+        "Photoshop",
+        "Illustrator",
+        "3ds Max",
+        "V-Ray",
+        "After Effects"
+      ],
+      "services": [
+        {
+          "icon": "◆",
+          "title": "أنظمة تصميم جرافيك",
+          "text": "تصميمات سوشيال ميديا، حملات، هوية بصرية، اتصالات داخلية، عروض تقديمية، وتصميمات للطباعة."
+        },
+        {
+          "icon": "◐",
+          "title": "تصور ثلاثي الأبعاد",
+          "text": "رندرات معمارية، تصميم داخلي وخارجي، بوثات، براندنج مساحات، وتحويل الفكرة إلى تنفيذ."
+        },
+        {
+          "icon": "✦",
+          "title": "إخراج أفكار AI",
+          "text": "اتجاهات إبداعية سريعة، moodboards، أفكار سريالية، فريمات قصصية، وإخراج بصري جاهز للإنتاج."
+        },
+        {
+          "icon": "▣",
+          "title": "VR وموشن",
+          "text": "جولات واقع افتراضي ثلاثية الأبعاد، موشن جرافيك، فيديوهات كوربريت، وتجارب رقمية تفاعلية."
+        }
+      ]
+    }
+  }
 }

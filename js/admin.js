@@ -9,27 +9,37 @@ function splitComma(value) {
   return value.split(',').map(item => item.trim()).filter(Boolean);
 }
 
+function splitLines(value) {
+  return value.split('\n').map(item => item.trim()).filter(Boolean);
+}
+
 function formToProject() {
   return {
     id: $('#projectId').value || uid(),
     title: $('#title').value.trim(),
+    category: $('#category').value.trim(),
     subtitle: $('#subtitle').value.trim(),
     description: $('#description').value.trim(),
+    thumbnail: $('#thumbnail').value.trim(),
     image: $('#image').value.trim(),
+    gallery: splitLines($('#gallery').value),
     tags: splitComma($('#tags').value),
     tools: splitComma($('#tools').value),
     role: $('#role').value.trim(),
     year: $('#yearInput').value.trim(),
-    highlights: $('#highlights').value.split('\n').map(item => item.trim()).filter(Boolean)
+    highlights: splitLines($('#highlights').value)
   };
 }
 
 function projectToForm(project) {
   $('#projectId').value = project.id || '';
   $('#title').value = project.title || '';
+  $('#category').value = project.category || '';
   $('#subtitle').value = project.subtitle || '';
   $('#description').value = project.description || '';
+  $('#thumbnail').value = project.thumbnail || '';
   $('#image').value = project.image || '';
+  $('#gallery').value = (project.gallery || []).join('\n');
   $('#tags').value = (project.tags || []).join(', ');
   $('#tools').value = (project.tools || []).join(', ');
   $('#role').value = project.role || '';
@@ -53,7 +63,7 @@ function renderList() {
     <div class="admin-item">
       <div>
         <strong>${project.title || 'Untitled project'}</strong>
-        <small>${(project.tags || []).join(', ') || 'No tags'} · ${project.year || 'No year'}</small>
+        <small>${project.category || 'No category'} · ${(project.tags || []).join(', ') || 'No tags'} · ${project.year || 'No year'}</small>
       </div>
       <div class="admin-actions" style="margin:0">
         <button class="admin-btn" type="button" data-action="edit" data-index="${index}">Edit</button>

@@ -479,3 +479,188 @@ body.light .marquee-track span { -webkit-text-stroke: 1px rgba(13,15,24,.34); }
   .project-card { min-height: 390px; }
   .footer { flex-direction: column; }
 }
+
+/* Kido Preston custom creative direction */
+:root {
+  --accent: #0b67ff;
+  --accent-2: #00d9ff;
+  --accent-3: #7aa7ff;
+}
+body {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(0, 112, 255, .23), transparent 34rem),
+    radial-gradient(circle at 80% 10%, rgba(0, 217, 255, .16), transparent 30rem),
+    radial-gradient(circle at 54% 92%, rgba(12, 67, 255, .16), transparent 28rem),
+    linear-gradient(180deg, #04060c, var(--bg));
+}
+.gradient-text {
+  background: linear-gradient(90deg, #f8fbff, var(--accent-2), #6aa8ff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.lang-btn {
+  font-size: .82rem;
+  font-weight: 900;
+  letter-spacing: .02em;
+}
+.hero-visual {
+  perspective: 1200px;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(0, 217, 255, .18), transparent 20rem),
+    radial-gradient(circle at 65% 62%, rgba(11, 103, 255, .22), transparent 22rem),
+    linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+}
+.hero-visual::before {
+  inset: 8%;
+  border-radius: 42%;
+  border: 1px solid rgba(0,217,255,.18);
+  box-shadow: 0 0 70px rgba(0,217,255,.10);
+}
+.gallery-scene {
+  position: absolute;
+  inset: 9% 8% 12%;
+  transform-style: preserve-3d;
+  animation: galleryTurn 20s linear infinite;
+}
+.gallery-scene:hover { animation-play-state: paused; }
+.hero-gallery-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(260px, 46%);
+  aspect-ratio: 1 / 1;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 28px 80px rgba(0,0,0,.52), 0 0 42px rgba(0,217,255,.12);
+  overflow: hidden;
+}
+.hero-gallery-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,.78));
+}
+.hero-gallery-card span {
+  position: absolute;
+  z-index: 2;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  display: inline-flex;
+  width: max-content;
+  max-width: calc(100% - 28px);
+  padding: 8px 11px;
+  border-radius: 999px;
+  background: rgba(1,9,18,.72);
+  border: 1px solid rgba(255,255,255,.22);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 900;
+  backdrop-filter: blur(10px);
+}
+.hero-gallery-card-1 { transform: translate(-50%, -50%) rotateY(0deg) translateZ(250px); }
+.hero-gallery-card-2 { transform: translate(-50%, -50%) rotateY(60deg) translateZ(250px); }
+.hero-gallery-card-3 { transform: translate(-50%, -50%) rotateY(120deg) translateZ(250px); }
+.hero-gallery-card-4 { transform: translate(-50%, -50%) rotateY(180deg) translateZ(250px); }
+.hero-gallery-card-5 { transform: translate(-50%, -50%) rotateY(240deg) translateZ(250px); }
+.hero-gallery-card-6 { transform: translate(-50%, -50%) rotateY(300deg) translateZ(250px); }
+.gallery-core {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  width: 176px;
+  height: 176px;
+  border-radius: 38px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  gap: 8px;
+  padding: 18px;
+  background: rgba(5, 10, 24, .58);
+  border: 1px solid rgba(0,217,255,.22);
+  box-shadow: inset 0 0 30px rgba(0,217,255,.10), 0 0 90px rgba(0,119,255,.22);
+  backdrop-filter: blur(18px);
+}
+.gallery-core span {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  font-weight: 950;
+}
+.category-tag {
+  background: rgba(0, 217, 255, .18);
+  border-color: rgba(0, 217, 255, .26);
+}
+.project-gallery-block {
+  padding: 0 34px 38px;
+}
+.project-gallery-block h3 { margin-bottom: 18px; }
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.project-gallery img {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: #000;
+}
+.rtl {
+  text-align: right;
+}
+.rtl .hero-actions,
+.rtl .toolbar,
+.rtl .contact-actions,
+.rtl .stats,
+.rtl .brand,
+.rtl .header-actions {
+  direction: rtl;
+}
+.rtl .project-tags,
+.rtl .skill-cloud,
+.rtl .filters { direction: rtl; }
+.rtl .search-box { direction: rtl; }
+.rtl .modal-meta strong,
+.rtl .modal-meta span { text-align: right; }
+
+@keyframes galleryTurn {
+  from { transform: rotateX(-7deg) rotateY(0deg); }
+  to { transform: rotateX(-7deg) rotateY(360deg); }
+}
+
+@media (max-width: 980px) {
+  .hero-gallery-card { width: min(230px, 52%); }
+  .hero-gallery-card-1 { transform: translate(-50%, -50%) rotateY(0deg) translateZ(190px); }
+  .hero-gallery-card-2 { transform: translate(-50%, -50%) rotateY(60deg) translateZ(190px); }
+  .hero-gallery-card-3 { transform: translate(-50%, -50%) rotateY(120deg) translateZ(190px); }
+  .hero-gallery-card-4 { transform: translate(-50%, -50%) rotateY(180deg) translateZ(190px); }
+  .hero-gallery-card-5 { transform: translate(-50%, -50%) rotateY(240deg) translateZ(190px); }
+  .hero-gallery-card-6 { transform: translate(-50%, -50%) rotateY(300deg) translateZ(190px); }
+}
+@media (max-width: 640px) {
+  .gallery-core { width: 136px; height: 136px; border-radius: 28px; }
+  .gallery-core span { width: 44px; height: 44px; border-radius: 14px; font-size: .82rem; }
+  .hero-gallery-card { width: min(188px, 58%); border-radius: 18px; }
+  .hero-gallery-card-1 { transform: translate(-50%, -50%) rotateY(0deg) translateZ(150px); }
+  .hero-gallery-card-2 { transform: translate(-50%, -50%) rotateY(60deg) translateZ(150px); }
+  .hero-gallery-card-3 { transform: translate(-50%, -50%) rotateY(120deg) translateZ(150px); }
+  .hero-gallery-card-4 { transform: translate(-50%, -50%) rotateY(180deg) translateZ(150px); }
+  .hero-gallery-card-5 { transform: translate(-50%, -50%) rotateY(240deg) translateZ(150px); }
+  .hero-gallery-card-6 { transform: translate(-50%, -50%) rotateY(300deg) translateZ(150px); }
+  .project-gallery { grid-template-columns: 1fr; }
+  .header-actions { gap: 2px; }
+  .icon-btn { width: 38px; height: 38px; }
+}
