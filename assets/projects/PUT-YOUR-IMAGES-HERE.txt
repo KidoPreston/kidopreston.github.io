@@ -1,0 +1,9 @@
+Place your portfolio images in this folder.
+
+Example:
+assets/projects/world-cup-fan-zone.jpg
+assets/projects/tp-summer-journey.jpg
+assets/projects/mascot-campaign.jpg
+
+Then reference the image path inside data/projects.json:
+"image": "assets/projects/world-cup-fan-zone.jpg"

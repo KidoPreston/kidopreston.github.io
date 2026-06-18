@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Portfolio Updater</title>
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="admin-page">
+  <div class="noise" aria-hidden="true"></div>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">◈</span><span>Portfolio Updater</span></a>
+    <div class="header-actions">
+      <a class="pill-link" href="index.html">View Site</a>
+    </div>
+  </header>
+
+  <main class="admin-wrap">
+    <p class="eyebrow">Static-site editor</p>
+    <h1 style="font-size:clamp(2.6rem,7vw,5.8rem)">Update your portfolio content.</h1>
+    <div class="help-box">
+      This editor helps you create a new <strong>data/projects.json</strong> file. Because GitHub Pages is static hosting, this page cannot save directly to GitHub by itself. Use it to add/edit projects, download the JSON, then upload/replace <strong>data/projects.json</strong> in your GitHub repository.
+    </div>
+
+    <section class="admin-panel">
+      <h2 style="font-size:2rem">1. Load existing projects</h2>
+      <div class="admin-actions">
+        <button class="admin-btn primary" id="loadFromSite" type="button">Load from data/projects.json</button>
+        <label class="admin-btn" for="importFile">Import JSON file</label>
+        <input id="importFile" type="file" accept="application/json" hidden>
+      </div>
+    </section>
+
+    <section class="admin-panel">
+      <h2 style="font-size:2rem">2. Add / edit project</h2>
+      <form id="projectForm" class="admin-grid">
+        <input type="hidden" id="projectId">
+        <div class="admin-field">
+          <label for="title">Project title</label>
+          <input id="title" required placeholder="TP Summer Journey" />
+        </div>
+        <div class="admin-field">
+          <label for="year">Year</label>
+          <input id="yearInput" placeholder="2026" />
+        </div>
+        <div class="admin-field full">
+          <label for="subtitle">Short subtitle</label>
+          <input id="subtitle" placeholder="A cinematic claymation travel world for an internal event." />
+        </div>
+        <div class="admin-field full">
+          <label for="description">Full description</label>
+          <textarea id="description" placeholder="Write the project story, goal, and result..."></textarea>
+        </div>
+        <div class="admin-field">
+          <label for="tags">Tags, comma separated</label>
+          <input id="tags" placeholder="3D, Branding, Event Design" />
+        </div>
+        <div class="admin-field">
+          <label for="tools">Tools, comma separated</label>
+          <input id="tools" placeholder="Photoshop, Illustrator, Blender, AI" />
+        </div>
+        <div class="admin-field">
+          <label for="role">Your role</label>
+          <input id="role" placeholder="Art Direction / 3D Artist" />
+        </div>
+        <div class="admin-field">
+          <label for="image">Image path or URL</label>
+          <input id="image" placeholder="assets/projects/project-name.jpg" />
+        </div>
+        <div class="admin-field full">
+          <label for="highlights">Highlights, one per line</label>
+          <textarea id="highlights" placeholder="Designed campaign identity&#10;Created 3D visual direction&#10;Prepared AI video prompts"></textarea>
+        </div>
+        <div class="admin-actions full">
+          <button class="admin-btn primary" type="submit">Save project in editor</button>
+          <button class="admin-btn" id="clearForm" type="button">Clear form</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="admin-panel">
+      <h2 style="font-size:2rem">3. Current project list</h2>
+      <div class="admin-list" id="adminList"></div>
+      <div class="admin-actions">
+        <button class="admin-btn primary" id="downloadJson" type="button">Download projects.json</button>
+        <button class="admin-btn" id="copyJson" type="button">Copy JSON</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{
+  "name": "Your Name",
+  "shortName": "Portfolio",
+  "title": "Graphic Designer & 3D Artist",
+  "intro": "I create bold visual identities, cinematic 3D worlds, event concepts, AI-driven visuals, and motion-ready storyboards for brands that need to stand out.",
+  "focus": "Graphic Design · 3D · AI Visuals",
+  "about": "I work across graphic design, 3D art direction, event storytelling, and AI-assisted production. My focus is creating complete visual worlds: from campaign look and feel to environments, characters, posters, social content, and motion prompts.",
+  "contactText": "For branding, 3D visual concepts, event campaign visuals, AI image direction, or motion design storyboards, reach out and let’s build something memorable.",
+  "email": "yourmail@example.com",
+  "phone": "",
+  "behance": "",
+  "instagram": "",
+  "linkedin": "",
+  "stats": [
+    { "value": "30+", "label": "Creative concepts" },
+    { "value": "3D", "label": "Visual direction" },
+    { "value": "AI", "label": "Production workflow" }
+  ],
+  "skills": [
+    "Brand Identity",
+    "3D Design",
+    "Event Visuals",
+    "AI Art Direction",
+    "Motion Prompts",
+    "Storyboards",
+    "Social Campaigns",
+    "Print Design",
+    "Photoshop",
+    "Illustrator",
+    "Blender / 3D",
+    "Creative Direction"
+  ],
+  "services": [
+    {
+      "icon": "◆",
+      "title": "Brand Identity",
+      "text": "Logo systems, key visuals, campaign directions, social templates, and premium visual languages."
+    },
+    {
+      "icon": "◐",
+      "title": "3D Art Direction",
+      "text": "Stylized environments, 3D characters, claymation concepts, object design, and cinematic scenes."
+    },
+    {
+      "icon": "✦",
+      "title": "Event Concepts",
+      "text": "Immersive corporate event themes, activation ideas, venue design, stickers, signage, and print assets."
+    },
+    {
+      "icon": "▣",
+      "title": "Motion Storyboards",
+      "text": "Start/end frames, scene sequencing, camera movement, AI video prompts, and dynamic storytelling."
+    }
+  ]
+}

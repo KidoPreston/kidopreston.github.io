@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of a graphic designer and 3D artist." />
+  <meta name="theme-color" content="#07070b" />
+  <title>Creative Portfolio | Graphic Designer & 3D Artist</title>
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Go to top">
+      <span class="brand-mark">◈</span>
+      <span data-profile="shortName">Portfolio</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">☾</button>
+      <a class="pill-link" href="admin.html">Update</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-pad">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Graphic Design · 3D Art · Motion Concepts</p>
+          <h1><span data-profile="name">Your Name</span><br><span class="gradient-text" data-profile="title">Visual Designer & 3D Artist</span></h1>
+          <p class="hero-text" data-profile="intro">I build cinematic visual identities, immersive event worlds, 3D characters, and creative campaigns that feel bold, premium, and memorable.</p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#work">View Portfolio</a>
+            <a class="secondary-btn" href="#contact">Let’s Collaborate</a>
+          </div>
+          <div class="stats" id="stats"></div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Abstract designer orbit visual">
+          <div class="orb orb-main"></div>
+          <div class="orb orb-second"></div>
+          <div class="orbit orbit-one"><span>3D</span></div>
+          <div class="orbit orbit-two"><span>AI</span></div>
+          <div class="orbit orbit-three"><span>UX</span></div>
+          <div class="glass-card floating-card card-one">
+            <small>Current Focus</small>
+            <strong data-profile="focus">Creative portfolio systems</strong>
+          </div>
+          <div class="glass-card floating-card card-two">
+            <small>Style</small>
+            <strong>Cinematic · Dark · Premium</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee-strip" aria-label="Creative skills">
+      <div class="marquee-track">
+        <span>Branding</span><span>3D Design</span><span>Event Concepts</span><span>AI Visuals</span><span>Motion Storyboards</span><span>Art Direction</span>
+        <span>Branding</span><span>3D Design</span><span>Event Concepts</span><span>AI Visuals</span><span>Motion Storyboards</span><span>Art Direction</span>
+      </div>
+    </section>
+
+    <section class="section-pad" id="work">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2>Portfolio Projects</h2>
+        </div>
+        <p>Filter by discipline, open a project, and update all content from <code>data/projects.json</code>.</p>
+      </div>
+
+      <div class="toolbar reveal">
+        <div class="filters" id="filters" aria-label="Project filters"></div>
+        <label class="search-box" for="projectSearch">
+          <span>⌕</span>
+          <input id="projectSearch" type="search" placeholder="Search projects..." />
+        </label>
+      </div>
+
+      <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="section-pad services" id="services">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">What I do</p>
+          <h2>Creative Services</h2>
+        </div>
+        <p>Built for designers who work across static visuals, 3D scenes, campaigns, events, and AI-assisted production.</p>
+      </div>
+      <div class="service-grid" id="serviceGrid"></div>
+    </section>
+
+    <section class="section-pad about" id="about">
+      <div class="about-card reveal">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2>Designing visual worlds, not just single images.</h2>
+        </div>
+        <div>
+          <p data-profile="about">I combine graphic design, 3D composition, event storytelling, and AI visual workflows to turn ideas into polished visual systems.</p>
+          <ul class="skill-cloud" id="skillCloud"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad contact" id="contact">
+      <div class="contact-card reveal">
+        <p class="eyebrow">Available for freelance / collaborations</p>
+        <h2>Let’s create something that people remember.</h2>
+        <p data-profile="contactText">For branding, 3D visual concepts, portfolio reviews, event campaign visuals, or motion design storyboards.</p>
+        <div class="contact-actions" id="contactActions"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> <span data-profile="name">Your Name</span>. Built for GitHub Pages.</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <dialog class="project-modal" id="projectModal">
+    <button class="modal-close" id="modalClose" aria-label="Close project">×</button>
+    <div id="modalBody"></div>
+  </dialog>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "tp-summer-journey",
+    "title": "TP Summer Journey",
+    "subtitle": "A claymation-inspired travel passport world with Egyptian destinations, stamps, and cinematic scenes.",
+    "description": "A playful internal event visual system built around a magical passport journey across Alexandria, Port Said, Ismailia, South Sinai, Fayoum, Luxor, and Aswan. The project direction included start/end animation frames, stylized 3D scenes, stamp moments, regional food and music references, and a cohesive claymation look.",
+    "image": "",
+    "tags": ["3D", "Event Design", "AI Visuals"],
+    "tools": ["Photoshop", "AI Image Generation", "Video Prompts", "Art Direction"],
+    "role": "Visual Direction / Prompt Design / Storyboarding",
+    "year": "2026",
+    "highlights": [
+      "Built a complete journey-based creative concept",
+      "Created scene prompts for start and end animation frames",
+      "Developed destination-specific visual details and stamps"
+    ]
+  },
+  {
+    "id": "world-cup-fan-zone",
+    "title": "World Cup Fan Zone",
+    "subtitle": "Dark cinematic event branding for football streaming, prediction games, and employee engagement.",
+    "description": "A high-energy visual direction for a corporate World Cup fan-zone experience. The concept included banners, mascots, social teasers, matchday visuals, prediction mechanics, and large-format branded spaces with stadium lighting and football energy.",
+    "image": "",
+    "tags": ["Branding", "Event Design", "Campaign"],
+    "tools": ["Photoshop", "Illustrator", "AI Visuals", "Art Direction"],
+    "role": "Creative Concept / Campaign Visuals",
+    "year": "2026",
+    "highlights": [
+      "Designed large-format fan-zone banner directions",
+      "Created mascot and football campaign concepts",
+      "Prepared visual prompts for multiple ratios and formats"
+    ]
+  },
+  {
+    "id": "betmgm-workspace-branding",
+    "title": "BetMGM Workspace Branding",
+    "subtitle": "Interior branding direction with wall visuals, danglers, and premium office atmosphere.",
+    "description": "A workspace visual branding concept focused on branded walls, round danglers, interior applications, and polished corporate presentation. The goal was to create a strong brand presence while maintaining a professional office environment.",
+    "image": "",
+    "tags": ["Branding", "Interior", "Graphic Design"],
+    "tools": ["Photoshop", "Illustrator", "AI Visualization"],
+    "role": "Branding Designer / Visualizer",
+    "year": "2026",
+    "highlights": [
+      "Created interior visual branding options",
+      "Explored different wall and hanging signage systems",
+      "Adjusted logo placement and premium lighting direction"
+    ]
+  },
+  {
+    "id": "riyadh-air-activation",
+    "title": "Riyadh Air Activation",
+    "subtitle": "A corporate activation identity with screen visuals, photo frame concepts, and travel-led creative assets.",
+    "description": "A visual package for a travel-themed activation, including screen layouts, photo frame designs, country-inspired visuals, and branded experience elements. The direction focused on clean premium layouts, aircraft references, and modern event communication.",
+    "image": "",
+    "tags": ["Activation", "Graphic Design", "Campaign"],
+    "tools": ["Photoshop", "Illustrator", "Layout Design"],
+    "role": "Graphic Designer / Event Visuals",
+    "year": "2026",
+    "highlights": [
+      "Designed screen and print-ready activation assets",
+      "Built multiple visual routes for event communication",
+      "Created country-themed supporting visuals"
+    ]
+  },
+  {
+    "id": "mascot-campaign",
+    "title": "3D Mascot Campaign",
+    "subtitle": "A cinematic mascot world using falcon, bull, and tiger characters in sports poses.",
+    "description": "A dramatic sports campaign concept featuring stylized animal mascots, trophy moments, stadium lighting, confetti, smoke, football poses, and dynamic action compositions. The direction focused on keeping character identity consistent across different poses and banner formats.",
+    "image": "",
+    "tags": ["3D", "Character Design", "Campaign"],
+    "tools": ["AI Image Generation", "Art Direction", "Photoshop"],
+    "role": "3D Visual Direction / Character Consistency",
+    "year": "2026",
+    "highlights": [
+      "Directed multiple mascot poses and campaign frames",
+      "Maintained identity consistency across versions",
+      "Created cinematic sports lighting and composition prompts"
+    ]
+  },
+  {
+    "id": "telescope-countries",
+    "title": "TP Island Telescope Countries",
+    "subtitle": "A skyline and sticker system showing countries visible from a themed telescope installation.",
+    "description": "A location-based environmental design idea for a telescope room, using country skylines, labels, and print-and-cut emblem stickers for each destination. The system was designed to work horizontally across glass and walls.",
+    "image": "",
+    "tags": ["Environmental Design", "Sticker Design", "Graphic Design"],
+    "tools": ["Illustrator", "AI Visuals", "Print Design"],
+    "role": "Visual Concept / Sticker System",
+    "year": "2026",
+    "highlights": [
+      "Created a destination-based wall/glass visual concept",
+      "Designed sticker/emblem directions for multiple countries",
+      "Adapted layouts for horizontal environmental application"
+    ]
+  }
+]
